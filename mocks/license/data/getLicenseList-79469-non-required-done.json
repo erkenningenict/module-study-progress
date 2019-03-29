@@ -1,0 +1,97 @@
+[
+  {
+    "RequiredPoints": 4,
+    "DonePoints": 1,
+    "CountedPoints": 1,
+    "RequiredPointsTodo": 3,
+    "ParticipationPoints": [
+      {
+        "ThemeId": 1,
+        "ThemeName": "Veiligheid en Techniek",
+        "RequiredPoints": 1,
+        "DonePoints": 0,
+        "CountedPoints": 0,
+        "TodoPoints": 0
+      },
+      {
+        "ThemeId": 2,
+        "ThemeName": "Teelt",
+        "RequiredPoints": 0,
+        "DonePoints": 1,
+        "CountedPoints": 1,
+        "TodoPoints": 0
+      },
+      {
+        "ThemeId": 3,
+        "ThemeName": "Transport en opslag",
+        "RequiredPoints": 0,
+        "DonePoints": 0,
+        "CountedPoints": 0,
+        "TodoPoints": 0
+      }
+    ],
+    "Participations": [
+      {
+        "ParticipationId": 718437,
+        "CourseId": 0,
+        "Status": "Definitief",
+        "License": null,
+        "Course": {
+          "Distance": 0,
+          "Registered": false,
+          "RegisteredDate": null,
+          "CanUnRegister": false,
+          "CourseId": 0,
+          "CourseCode": "2229146260",
+          "Date": "2016-01-12T00:00:00",
+          "StartTime": "19:30",
+          "EndTime": "22:30",
+          "Remarks": "",
+          "LocationName": "Delphy / Plantariumgebouw",
+          "LocationAddress": {
+            "ContactDataId": 0,
+            "Street": "Italielaan",
+            "HouseNr": "6",
+            "HouseNrExtension": "",
+            "Zipcode": "2391 PT",
+            "City": "Hazerswoude Dorp",
+            "Phone": null,
+            "Email": null,
+            "EmailEmployer": null,
+            "Website": null
+          },
+          "SpecialtyId": 0,
+          "Code": null,
+          "Title": "Actualiteiten boomteelt en vaste planten",
+          "Theme": "Teelt",
+          "Competence": "Bedrijfsvoeren Gewasbescherming",
+          "Promotext": "Actualiteiten gewasbescherming Voortdurend zijn er veranderingen op het gebied van gewasbescherming. Voor een effectieve bestrijding is het van belang goed op de hoogte te zijn. Er komen nieuwe middelen op de markt. Ook steken er verschillende nieuwe ziekten en plagen de kop op. Daarnaast wordt het voorkomen van ziekten en plagen door de juiste teelthandelingen steeds belangrijker. Tijdens deze bijeenkomst wordt u op de hoogte gebracht van de laatste ontwikkelingen met betrekking tot gewasbescherming. Een praktisch verhaal is daarbij gegarandeerd omdat de bijeenkomst wordt gegeven door adviseurs met veel praktijkervaring. Kijk voor meer informatie en het inschrijfformulier op www.dlvplant.nl (sector boomteelt) of bel naar: 0172 212827.",
+          "Price": 60,
+          "OrganizerId": 0,
+          "Organizer": "Delphy team Boomteelt (ID 10470)",
+          "OrganizerPhone": "0172 212 827",
+          "OrganizerEmail": "j.blanken@delphy.nl",
+          "OrganizerWebsite": "",
+          "OrganizerContactperson": null,
+          "OrganizerAddress": null
+        }
+      }
+    ],
+    "IsValid": false,
+    "Completed": true,
+    "StartDate": "2012-01-22T00:00:00",
+    "EndDate": "2017-01-22T00:00:00",
+    "DateFulfilled": "2016-02-08T00:00:00",
+    "LicenseAnnotations": [],
+    "PostponementGiven": null,
+    "PostponementDateTo": null,
+    "WithdrawnFromDate": null,
+    "WithdrawnToDate": null,
+    "PointsToDo": 0,
+    "LicenseId": 241998,
+    "CertificateName": "Uitvoeren Gewasbescherming",
+    "CertificateCode": "UG",
+    "CertificateNr": "31.2011.0019332",
+    "Status": "Verlopen"
+  }
+]

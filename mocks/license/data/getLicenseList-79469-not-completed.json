@@ -1,0 +1,51 @@
+[
+  {
+    "RequiredPoints": 4,
+    "DonePoints": 0,
+    "CountedPoints": 0,
+    "RequiredPointsTodo": 4,
+    "ParticipationPoints": [
+      {
+        "ThemeId": 1,
+        "ThemeName": "Veiligheid en Techniek",
+        "RequiredPoints": 1,
+        "DonePoints": 0,
+        "CountedPoints": 0,
+        "TodoPoints": 0
+      },
+      {
+        "ThemeId": 2,
+        "ThemeName": "Teelt",
+        "RequiredPoints": 0,
+        "DonePoints": 0,
+        "CountedPoints": 0,
+        "TodoPoints": 0
+      },
+      {
+        "ThemeId": 3,
+        "ThemeName": "Transport en opslag",
+        "RequiredPoints": 0,
+        "DonePoints": 0,
+        "CountedPoints": 0,
+        "TodoPoints": 0
+      }
+    ],
+    "Participations": [],
+    "IsValid": false,
+    "Completed": true,
+    "StartDate": "2012-01-22T00:00:00",
+    "EndDate": "2017-01-22T00:00:00",
+    "DateFulfilled": "2016-02-08T00:00:00",
+    "LicenseAnnotations": [],
+    "PostponementGiven": null,
+    "PostponementDateTo": null,
+    "WithdrawnFromDate": null,
+    "WithdrawnToDate": null,
+    "PointsToDo": 0,
+    "LicenseId": 241998,
+    "CertificateName": "Uitvoeren Gewasbescherming",
+    "CertificateCode": "UG",
+    "CertificateNr": "31.2011.0019332",
+    "Status": "Verlopen"
+  }
+]

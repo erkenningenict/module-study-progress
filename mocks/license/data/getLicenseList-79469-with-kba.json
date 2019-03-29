@@ -1,0 +1,202 @@
+[
+  {
+    "RequiredPoints": 5,
+    "DonePoints": 3,
+    "CountedPoints": 3,
+    "RequiredPointsTodo": 2,
+    "ParticipationPoints": [
+      {
+        "ThemeId": 1,
+        "ThemeName": "Veiligheid en Techniek",
+        "RequiredPoints": 1,
+        "DonePoints": 1,
+        "CountedPoints": 1,
+        "TodoPoints": 0
+      },
+      {
+        "ThemeId": 2,
+        "ThemeName": "Teelt",
+        "RequiredPoints": 0,
+        "DonePoints": 1,
+        "CountedPoints": 1,
+        "TodoPoints": 0
+      },
+      {
+        "ThemeId": 3,
+        "ThemeName": "Transport en opslag",
+        "RequiredPoints": 0,
+        "DonePoints": 0,
+        "CountedPoints": 0,
+        "TodoPoints": 0
+      },
+      {
+        "ThemeId": 24,
+        "ThemeName": "KBA",
+        "RequiredPoints": 1,
+        "DonePoints": 1,
+        "CountedPoints": 1,
+        "TodoPoints": 0
+      }
+    ],
+    "Participations": [
+      {
+        "ParticipationId": 853919,
+        "CourseId": 0,
+        "Status": "Definitief",
+        "License": null,
+        "Course": {
+          "Distance": 0,
+          "Registered": false,
+          "RegisteredDate": null,
+          "CanUnRegister": false,
+          "CourseId": 0,
+          "CourseCode": "2271355771",
+          "Date": "2018-05-23T00:00:00",
+          "StartTime": "19:30",
+          "EndTime": "22:30",
+          "Remarks": "",
+          "LocationName": "Aeres Training Centre Emmeloord",
+          "LocationAddress": {
+            "ContactDataId": 0,
+            "Street": "De Balkan",
+            "HouseNr": "16",
+            "HouseNrExtension": "",
+            "Zipcode": "8303 GZ",
+            "City": "Emmeloord",
+            "Phone": null,
+            "Email": null,
+            "EmailEmployer": null,
+            "Website": null
+          },
+          "SpecialtyId": 0,
+          "Code": null,
+          "Title": "Knaagdierbeheersing op het agrarisch bedrijf",
+          "Theme": "KBA",
+          "Competence": "KBA",
+          "Promotext": "In deze kennisbijeenkomst maakt men kennis met de leefwijze van de belangrijkste knaagdierplagen op het agrarisch bedrijf en de methoden, middelen en materialen ter preventie en bestrijding. Specifiek wordt ingegaan op het voorkomen van resistentie bij de ratten en muizen tegen chemische bestrijdingsmiddelen en het veilig omgaan met deze middelen. Door het volgen van deze bijeenkomst verkrijgt men de aantekening Knaagdierbeheersing agrarisch bedrijf, op het bewijs van bekwaamheid Uitvoeren of Bedrijfsvoeren Gewasbescherming. Deze aantekening is nodig omdat de vrijstelling voor het toepassen van chemische middelen tegen knaagdieren op het eigen agrarische bedrijf vervalt per 1 juli 2015.",
+          "Price": 80,
+          "OrganizerId": 0,
+          "Organizer": "Aeres Training Centre Emmeloord",
+          "OrganizerPhone": "088-0205101",
+          "OrganizerEmail": "info.atc.emmeloord@aeres.nl",
+          "OrganizerWebsite": "",
+          "OrganizerContactperson": null,
+          "OrganizerAddress": null
+        }
+      },
+      {
+        "ParticipationId": 864564,
+        "CourseId": 0,
+        "Status": "Definitief",
+        "License": null,
+        "Course": {
+          "Distance": 0,
+          "Registered": false,
+          "RegisteredDate": null,
+          "CanUnRegister": false,
+          "CourseId": 0,
+          "CourseCode": "2361057398",
+          "Date": "2018-11-16T00:00:00",
+          "StartTime": "09:00",
+          "EndTime": "12:00",
+          "Remarks": "",
+          "LocationName": "d'Olde Skoele",
+          "LocationAddress": {
+            "ContactDataId": 0,
+            "Street": "Oude Rijksweg",
+            "HouseNr": "427",
+            "HouseNrExtension": "",
+            "Zipcode": "7954 GH",
+            "City": "Rouveen",
+            "Phone": null,
+            "Email": null,
+            "EmailEmployer": null,
+            "Website": null
+          },
+          "SpecialtyId": 0,
+          "Code": null,
+          "Title": "Veilig werken met hi-tech",
+          "Theme": "Veiligheid en Techniek",
+          "Competence": "Bedrijfsvoeren Gewasbescherming",
+          "Promotext": "Het veilig werken met hightech is een onderwerp dat zich voortdurend actualiseert, onder druk van wet- en regelgeving of nieuwe inzichten in toedieningstechniek. In deze interactieve kennisbijeenkomst kunt u met deskundigen discussieren over spuittechniek, (geautomatiseerde) adviessystemen en persoonlijke beschermingsmiddelen.De prijs is afhankelijk van de organisatie en het aantal deelnemers. ( € 30,= tot € 75)",
+          "Price": 59,
+          "OrganizerId": 0,
+          "Organizer": "AOC Terra-TerraNext",
+          "OrganizerPhone": "050 368 23 90",
+          "OrganizerEmail": "gewasbescherming.eelde@terranext.nl",
+          "OrganizerWebsite": "",
+          "OrganizerContactperson": null,
+          "OrganizerAddress": null
+        }
+      },
+      {
+        "ParticipationId": 877553,
+        "CourseId": 0,
+        "Status": "Voorlopig",
+        "License": null,
+        "Course": {
+          "Distance": 0,
+          "Registered": false,
+          "RegisteredDate": null,
+          "CanUnRegister": false,
+          "CourseId": 0,
+          "CourseCode": "2342657921",
+          "Date": "2019-01-15T00:00:00",
+          "StartTime": "10:30",
+          "EndTime": "15:00",
+          "Remarks": "",
+          "LocationName": "Willemsen, Rick",
+          "LocationAddress": {
+            "ContactDataId": 0,
+            "Street": "J.F. Oltmansstraat",
+            "HouseNr": "17",
+            "HouseNrExtension": "",
+            "Zipcode": "7221 NB",
+            "City": "Steenderen",
+            "Phone": null,
+            "Email": null,
+            "EmailEmployer": null,
+            "Website": null
+          },
+          "SpecialtyId": 0,
+          "Code": null,
+          "Title": "Gewasbescherming  in de kringloopwijzer 2018",
+          "Theme": "Teelt",
+          "Competence": "Bedrijfsvoeren Gewasbescherming",
+          "Promotext": "De kringloopwijzer maakt “kringloopprestaties” inzichtelijk, zoals verliezen van ammoniak, bodem N en P overschotten, opbrengsten van het land en benuttingen. De kringloopwijzer is gebaseerd op Wageningse rekenregels. Om een hogere fosfaatbenutting aan te tonen is de kringloopwijzer een bijzonder nuttig instrument\nDe bedrijfskringloop is de essentie van uw bedrijf.\nLeer uw bodem-plant-diermest kringloop kennen en ontdek hoe u de mogelijkheden en capaciteiten van uw eigen bedrijfskringloop kunt benutten.\nLeer hoe weerstand en groei van bodem en dier bevorderd worden. En schade aan uw gewas met minder of geen chemie beperkt kan worden.\n € 80,- per deelnemer exclusief btw.",
+          "Price": 80,
+          "OrganizerId": 0,
+          "Organizer": "Dirksen Management Support",
+          "OrganizerPhone": "0345-501885",
+          "OrganizerEmail": "info@dmsadvies.nl",
+          "OrganizerWebsite": "",
+          "OrganizerContactperson": null,
+          "OrganizerAddress": null
+        }
+      }
+    ],
+    "IsValid": true,
+    "Completed": false,
+    "StartDate": "2018-03-07T00:00:00",
+    "EndDate": "2023-03-07T00:00:00",
+    "DateFulfilled": null,
+    "LicenseAnnotations": [
+      {
+        "AnnotationCode": "KBA",
+        "FromDate": "2018-05-23T00:00:00",
+        "PassGeneratedDate": "2018-05-25T12:13:59.033",
+        "Remarks": null
+      }
+    ],
+    "PostponementGiven": null,
+    "PostponementDateTo": null,
+    "WithdrawnFromDate": null,
+    "WithdrawnToDate": null,
+    "PointsToDo": 2,
+    "LicenseId": 339740,
+    "CertificateName": "Uitvoeren Gewasbescherming + KBA",
+    "CertificateCode": "UG",
+    "CertificateNr": "31.2018.0006289",
+    "Status": "Geldig"
+  }
+]

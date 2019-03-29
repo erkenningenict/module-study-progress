@@ -1,0 +1,30 @@
+.block-container {
+  display: flex;
+  margin-bottom: 3rem;
+  margin-top: 3rem;
+  background: #eee;
+  padding: 2rem;
+}
+
+.block {
+  padding: 20px;
+  width: 150px;
+  height: 100px;
+  font-weight: bold;
+  margin-right: 20px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+}
+
+.green {
+  background: #6abbb7;
+}
+
+.block > p {
+  margin: auto;
+}
+
+.orange {
+  background: #dd6b02;
+}
