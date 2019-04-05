@@ -47,9 +47,13 @@ function run() {
     // Add file entries
     let fileEntries = '';
     ['css', 'js', 'media'].forEach((folder) => {
-      fs.readdirSync(path.resolve(buildFolder, folder)).forEach((file) => {
-        fileEntries += dnnFileEntryTemplate.replace('{{FOLDER}}', folder).replace('{{FILE}}', file);
-      });
+      if (fs.existsSync(path.resolve(buildFolder, folder))) {
+        fs.readdirSync(path.resolve(buildFolder, folder)).forEach((file) => {
+          fileEntries += dnnFileEntryTemplate
+            .replace('{{FOLDER}}', folder)
+            .replace('{{FILE}}', file);
+        });
+      }
     });
     dnnTemplateData = dnnTemplateData.replace(new RegExp(`{{FILE_ENTRIES}}`, 'g'), fileEntries);
 
