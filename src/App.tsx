@@ -25,7 +25,7 @@ class App extends Component<{}, IAppState> {
     };
   }
   componentDidMount() {
-    fetch('/DesktopModules/AOCRaad.Erkenningen.WebAPI/API/License/LicenseList', {
+    fetch(`${process.env.REACT_APP_DNN_WEB_API}/License/LicenseList`, {
       credentials: 'same-origin',
     })
       .then(handleErrors)

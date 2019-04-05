@@ -1,8 +1,8 @@
 import React from 'react';
 import { toDutchDate } from '../helpers/date-utils';
 import { ILicenseDetails, ILicenseAnnotation } from '../models/license-details';
-import TransitionGroup from 'react-transition-group/TransitionGroup';
-import CSSTransition from 'react-transition-group/CSSTransition';
+// import TransitionGroup from 'react-transition-group/TransitionGroup';
+// import CSSTransition from 'react-transition-group/CSSTransition';
 
 import StudyProgressContainer from '../containers/StudyProgressContainer';
 import ProgressBar from './ProgressBar';
@@ -89,28 +89,28 @@ class LicenseListRow extends React.Component<ILicenseListRowProps, ILicenseListR
     const extendedRow = (
       <tr key={row.LicenseId + 1}>
         <td colSpan={7} style={{ padding: 0, borderTop: 0 }}>
-          <TransitionGroup className="example" key={row.LicenseId + 1} component={null}>
-            <CSSTransition key={row.LicenseId + 1} timeout={500} classNames="fade">
-              <div
-                style={{
-                  ...defaultStyle,
-                  ...transitionStyles[this.state.showStudyProgress ? 'entered' : 'entering'],
-                }}
-              >
-                <div
-                  style={{
-                    padding: '16px',
-                    background: backgroundColor,
-                  }}
-                >
-                  <StudyProgressContainer
-                    licenseDetails={row}
-                    onShowAllLicenses={() => this.props.onSelectLicense(undefined)}
-                  />
-                </div>
-              </div>
-            </CSSTransition>
-          </TransitionGroup>
+          {/* <TransitionGroup className="example" key={row.LicenseId + 1} component={null}>
+            <CSSTransition key={row.LicenseId + 1} timeout={500} classNames="fade"> */}
+          <div
+            style={{
+              ...defaultStyle,
+              ...transitionStyles[this.state.showStudyProgress ? 'entered' : 'entering'],
+            }}
+          >
+            <div
+              style={{
+                padding: '16px',
+                background: backgroundColor,
+              }}
+            >
+              <StudyProgressContainer
+                licenseDetails={row}
+                onShowAllLicenses={() => this.props.onSelectLicense(undefined)}
+              />
+            </div>
+          </div>
+          {/* </CSSTransition>
+          </TransitionGroup> */}
         </td>
       </tr>
     );

@@ -37,6 +37,7 @@ class LicenseTable extends React.Component<ILicenseTableProps, ILicenseTableStat
       <Panel title="Licentie(s)" useBody={false}>
         <div className="panel-body">
           <p>Wij hebben de volgende licenties van u geregistreerd:</p>
+          <p>(Klik op een pasnummer om uw studievorderingen te bekijken)</p>
         </div>
         <div className="table-responsive">
           <table className="table table-striped">
@@ -51,24 +52,6 @@ class LicenseTable extends React.Component<ILicenseTableProps, ILicenseTableStat
                 <th className="text-right" style={{ minWidth: '90px' }}>
                   Geldig tot
                 </th>
-                {/* <th style={{ minWidth: '175px' }}>
-                  <div className="progress" style={{ marginBottom: '0' }}>
-                    <div
-                      className="progress-bar progress-bar-success"
-                      role="progressbar"
-                      style={{ width: '50%' }}
-                    >
-                      <strong>Gedaan</strong>
-                    </div>
-                    <div
-                      className="progress-bar progress-bar-danger"
-                      role="progressbar"
-                      style={{ width: '50%' }}
-                    >
-                      <strong>Nog te doen</strong>
-                    </div>
-                  </div>
-                </th> */}
               </tr>
             </thead>
             <tbody>{rows}</tbody>

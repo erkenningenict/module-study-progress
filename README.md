@@ -1,3 +1,5 @@
+# DNN module in Create React App
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
@@ -46,3 +48,5 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 ## Open mock server page
 
 [mocking](http://localhost:4000/mocking)
+
+To set the endpoint when a scenario is set to Pass through (backend/api url) go to `/mocks/mocks.js` to enter the correct url.

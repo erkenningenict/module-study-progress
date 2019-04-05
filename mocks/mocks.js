@@ -23,12 +23,10 @@ ngApimock.watch('mocks');
   app.use((req, res) => {
     console.log('incoming request url: ', req.url);
     if (req.url.match('/DesktopModules') !== null) {
-      console.log('#DH# inside Desktopmodules', req.url.indexOf('/heatnl-dev/v1'));
-      // Real MMF dev api endpoint
-      const baseUrlProd =
-        'https://erkenningen.nl/DesktopModules/AOCRaad.Erkenningen.WebAPI/API/License/LicenseList';
-      // const url = req.url.replace('/DesktopModules/AOCRaad.Erkenningen.WebAPI/API', '');
-      const redirectUrl = `${baseUrlProd}`;
+      console.log('#DH# inside Desktopmodules');
+      // Real api endpoint
+      const baseUrlProd = `https://adviseren.erkenningen.nl`;
+      const redirectUrl = `${baseUrlProd}${req.url}`;
       console.log('redirecting to Prod API: ', redirectUrl);
       // Redirect to the real api endpoint
       res.writeHead(307, {
