@@ -72,7 +72,6 @@ class StudyProgressContainer extends React.Component<IStudyProgressContainerProp
             <i className="glyphicon glyphicon-chevron-left" /> Terug naar mijn licenties
           </a>
           <h4 style={{ lineHeight: '28px' }}>
-            Voor: <br />
             {licenseDetails.CertificateNr} - {certificateName}
             <br />
             Geldig tot: {toDutchDate(licenseDetails.EndDate)}

@@ -3,6 +3,7 @@ import LicenseTable from './containers/LicenseTable';
 import { handleErrors } from './helpers/fetch-helper';
 import { ILicenseDetails } from './models/license-details';
 import StudyProgressContainer from './containers/StudyProgressContainer';
+import 'primereact/resources/primereact.min.css';
 
 interface IAppProps {}
 interface IAppState {
