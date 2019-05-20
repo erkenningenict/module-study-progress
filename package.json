@@ -36,6 +36,7 @@
     "start:app": "react-scripts start",
     "build:dnn": "node create-dnn-module.js",
     "build:prod": "npm-run-all build build:dnn",
+    "build:deploy": "node create-deploy-file.js",
     "build": "react-scripts build",
     "precommit": "pretty-quick --staged",
     "test": "react-scripts test",
