@@ -3,10 +3,13 @@
   "version": "1.0.0",
   "private": true,
   "dependencies": {
+    "@erkenningen/build": "1.0.7",
+    "@erkenningen/ui": "1.0.41",
+    "axios": "0.19.0",
     "classnames": "2.2.6",
     "primereact": "3.1.2",
-    "react": "16.7.0",
-    "react-dom": "16.7.0",
+    "react": "16.8.6",
+    "react-dom": "16.8.6",
     "react-scripts": "2.1.8",
     "typescript": "3.2.2"
   },
@@ -34,9 +37,9 @@
   "scripts": {
     "start": "run-p -r mockserver start:app",
     "start:app": "react-scripts start",
-    "build:dnn": "node create-dnn-module.js",
+    "build:dnn": "node ./node_modules/@erkenningen/build/scripts/create-dnn-module.js",
     "build:prod": "npm-run-all build build:dnn",
-    "build:deploy": "node create-deploy-file.js",
+    "build:deploy": "node ./node_modules/@erkenningen/build/scripts/create-deploy-file.js",
     "build": "react-scripts build",
     "precommit": "pretty-quick --staged",
     "test": "react-scripts test",

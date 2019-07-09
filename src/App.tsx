@@ -1,89 +1,59 @@
-import React, { Component } from 'react';
-import LicenseTable from './containers/LicenseTable';
-import { handleErrors } from './helpers/fetch-helper';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import { LicenseTable } from './containers/LicenseTable';
 import { ILicenseDetails } from './models/license-details';
-import StudyProgressContainer from './containers/StudyProgressContainer';
+import { StudyProgressContainer } from './containers/StudyProgressContainer';
 import 'primereact/resources/primereact.min.css';
+import '@fortawesome/fontawesome-free/css/all.min.css';
+import { ThemeContext, Alert, Spinner } from '@erkenningen/ui';
 
-interface IAppProps {}
-interface IAppState {
-  licenseList: ILicenseDetails[];
-  error: any;
-  isLoaded: boolean;
-  isLoading: boolean;
-  showStudyProgressForLicenseId: ILicenseDetails | undefined;
-}
+export const App: React.FC<{}> = (props) => {
+  const [showStudyProgressForLicenseId, setShowStudyProgressForLicenseId] = useState<
+    ILicenseDetails | undefined
+  >(undefined);
+  const [data, setData] = useState<ILicenseDetails[] | null>(null);
+  const [isLoading, setIsLoading] = useState(false);
+  const [isError, setIsError] = useState(false);
 
-class App extends Component<{}, IAppState> {
-  constructor(props: IAppProps) {
-    super(props);
-    this.state = {
-      error: null,
-      isLoaded: false,
-      isLoading: true,
-      licenseList: [],
-      showStudyProgressForLicenseId: undefined,
-    };
-  }
-  componentDidMount() {
-    fetch(`${process.env.REACT_APP_DNN_WEB_API}/License/LicenseList`, {
-      credentials: 'same-origin',
-    })
-      .then(handleErrors)
-      .then((res) => res.json())
-      .then(
-        (result) => {
-          this.setState({
-            isLoaded: true,
-            licenseList: result,
-            error: undefined,
-          });
-        },
-        // Note: it's important to handle errors here
-        // instead of a catch() block so that we don't swallow
-        // exceptions from actual bugs in components.
-        (error) => {
-          console.log('Fetch error', error);
-          this.setState({
-            isLoaded: true,
-            error: 'Probleem opgetreden bij ophalen gegevens.',
-          });
-        },
-      );
-  }
-  render() {
-    const { error, isLoaded, isLoading, licenseList, showStudyProgressForLicenseId } = this.state;
-    return (
-      <div>
-        {isLoading && !isLoaded && (
-          <div className="alert alert-info">Gegevens worden geladen...</div>
-        )}
-        {error && (
-          <div className="alert alert-danger">
-            Er is een probleem opgetreden bij het ophalen van de gegevens. Probeer het later nog
-            eens.
-          </div>
-        )}
-        {isLoaded && !error && !showStudyProgressForLicenseId && (
-          <LicenseTable
-            error={error}
-            isLoaded={isLoaded}
-            isLoading={isLoading}
-            licenseList={licenseList}
-            onSelectLicense={(licenseDetails: ILicenseDetails) =>
-              this.setState({ showStudyProgressForLicenseId: licenseDetails })
-            }
-          />
-        )}
-        {isLoaded && !!showStudyProgressForLicenseId && (
-          <StudyProgressContainer
-            licenseDetails={showStudyProgressForLicenseId}
-            onShowAllLicenses={() => this.setState({ showStudyProgressForLicenseId: undefined })}
-          />
-        )}
-      </div>
-    );
-  }
-}
+  useEffect(() => {
+    setIsLoading(true);
+    async function getData() {
+      try {
+        const result = await axios(`${process.env.REACT_APP_DNN_WEB_API}/License/LicenseList`);
+        setData(result.data);
+        setIsLoading(false);
+      } catch (error) {
+        setIsError(true);
+      }
+    }
+    getData();
+  }, []);
 
-export default App;
+  return (
+    <ThemeContext.Provider value={{ mode: 'student' }}>
+      {isLoading && !data && <Spinner />}
+      {isError && (
+        <Alert type="danger">
+          Er is een probleem opgetreden bij het ophalen van de gegevens. Probeer het later nog eens.
+        </Alert>
+      )}
+      {data && !isError && !showStudyProgressForLicenseId && (
+        <LicenseTable
+          error={isError}
+          isLoaded={!!data}
+          isLoading={isLoading}
+          licenseList={data}
+          onSelectLicense={(licenseDetails: ILicenseDetails) =>
+            setShowStudyProgressForLicenseId(licenseDetails)
+          }
+        />
+      )}
+      {data && !!showStudyProgressForLicenseId && (
+        <StudyProgressContainer
+          licenseDetails={showStudyProgressForLicenseId}
+          onShowAllLicenses={() => setShowStudyProgressForLicenseId(undefined)}
+        />
+      )}
+    </ThemeContext.Provider>
+  );
+};

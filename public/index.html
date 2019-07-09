@@ -49,17 +49,17 @@
             name="ROBOTS"
             content="INDEX, FOLLOW"
         >
-        <link href="https://adviseren.erkenningen.nl/Resources/Shared/stylesheets/dnndefault/7.0.0/default.css" type="text/css" rel="stylesheet">
-        <link href="https://adviseren.erkenningen.nl/DesktopModules/UserDefinedTable/module.css" type="text/css" rel="stylesheet">
-        <link href="https://adviseren.erkenningen.nl/Portals/_default/Containers/ErkenningenBootstrap3Containers/Title_BlackBox.css" type="text/css" rel="stylesheet">
-        <link href="https://adviseren.erkenningen.nl/Portals/1/portal.css" type="text/css" rel="stylesheet">
-        <link href="https://adviseren.erkenningen.nl/Portals/_default/skins/erkenningenbootstrap3/dist/full-package.css" type="text/css" rel="stylesheet">
+        <link href="default.css" type="text/css" rel="stylesheet">
+        <link href="module.css" type="text/css" rel="stylesheet">
+        <link href="Title_BlackBox.css" type="text/css" rel="stylesheet">
+        <link href="portal.css" type="text/css" rel="stylesheet">
+        <link href="full-package.css" type="text/css" rel="stylesheet">
         <script
-            src="https://adviseren.erkenningen.nl/Resources/libraries/jQuery/01_09_01/jquery.js"
+            src="jquery.js"
             type="text/javascript"
         ></script>
         <script
-            src="https://adviseren.erkenningen.nl/Resources/libraries/jQuery-UI/01_11_03/jquery-ui.js"
+            src="jquery-ui.js"
             type="text/javascript"
         ></script>
         <meta
@@ -78,32 +78,6 @@
             id="Form"
             enctype="multipart/form-data"
         >
-            <div class="aspNetHidden">
-                <input
-                    type="hidden"
-                    name="__EVENTTARGET"
-                    id="__EVENTTARGET"
-                    value
-                >
-                <input
-                    type="hidden"
-                    name="__EVENTARGUMENT"
-                    id="__EVENTARGUMENT"
-                    value
-                >
-                <input
-                    type="hidden"
-                    name="__LASTFOCUS"
-                    id="__LASTFOCUS"
-                    value
-                >
-                <input
-                    type="hidden"
-                    name="__VIEWSTATE"
-                    id="__VIEWSTATE"
-                    value="eH3U4gTT0AaDxYp5bbHScWeMLZPmOZSIDsci/7mlOt4pp/Fa94gFoL1Tz1O/wCHcypq6ndmvPPiLFuULr+gCBcKkjXY2OSuMJ2fCC+Tik2IAOza3qGw1astjxC5K7DzlOZpM7w0ee2Kx9gAosK8ZChH1NRdm4b5ygydgm8/m6cS40ZAh4g2ku5/hm+B0UlJmnsCfAE4TGmivplMLlwIHxWAXxySqpP7gauLcJaX8ANtjFs2DHf6oBE8YU2jq7uzS2Azli29ZljDMqmsYGWKDVK48qwfTq8dhsgtdSFyrOlTItIFXajDrSdhm+5WhK/SFBkOKS7z0hLzqXC5SEupcCoZxRESmSddSMhZieuji3AHhRAHMGMtmoFFR003jNbEEK7ovq+dCAaEnzRUHgetDslz2cQodhK01e9Gb+/b5Y2gKOPiDWwyQDjhXtTcvcB/w69V/42i0GdALCB1WGBqCzL8pxw0PLypLmk2ffSV7KVTFd9lOOrcGXhF73S8D1BWE4GEl9VwgT8zGvBmA3g13uFFRK5JGwgDYEPc6E+ibgoxzV9JtTkedR66ccQJN9BeM3KAy1K0PL03KOJUWOPjfk8vsutyE+NSJY8OxSekJuRAKM8yJiO2cg0t3LgB/9ND0yfHTd1qgsbVULFeLM3ECvX+FUObUlxi7xDwrAHyzkgODHY2ZwoTCYH71O/cKa7H8LMpxcP2kCaEg9LgKOoNV3oir1J0s4jQ6DVTximxuop4oKT/3/o534S40ZsBpMq2lqn7YHK0m9PzV06ScBNZabjQGL1e60HCc7GHXIP3D2Z6rLfOd0MgnqaVyOEdT+YQWSvBLK7XmlfKOf/ZFjRTH95R96uxPQ7S/3WC0wmoTvU+fAmy/dyZfqUxJHOKDGmYFgW4xlsg8m9x2Qop0cAV3obJjPbAoyJ+0/+XkQg6bVn/w9n5tAcoR7SQXtBvYGe4dMs/BqfnGZ3H1hW2xsrD7Gtgeb+qHDxu6zxCvJXBenmhFJTJiFQ/irigEeWvelSnnkLDiNrU004nCvxSZFMFXvRDJJxee2TVliGmqv0cnQWdUmc9e4/E8Ehsogf2CDnGEro5n9Ba00Uz+6NHI2r16WD4sbKf3qYd84KXPI73NgxpTjIXysSiwtlcPOcl6ZoBax8w7cIZKBbTVXGneYqYHGp2bT+DchmZhR2QWcpouNI8IxVi7o00plXgbjp9YXNl72PB/ePCzd6KhZHGrCqYpYWsMQv07XUKXDbYdzSF7b/LHK1j3piEzYjDC2V6h12lb5QD5yG2gBqRV9W1Ccaht4en8Ooutv2WoMAslgfVHneCnKxSL3cwavNj/QnVp+woyqG2YpAs/p15soyZthgTzTEcuigNprd7k0FakTjMHhLor0iTyZpn41QfaDQbclWBVvdMLT8RiGkq2y3rrI+MUllLRBGoYAPeMhM/wkFi0zAx0K9rWq1eZRQ6eMylW06XZWl3g6hidpswPR9D1X1/DDd6ELx6ezuKuBUlN6/Ph/1VAM6IpKcnOqIxjIyG52Fm/kt+j/Qs4mG/YwF3sCi/c0jabnJKZhOktRv27wWtuRrH1DwbQ"
-                >
-            </div>
 
             <script type="text/javascript">
                 //<![CDATA[
@@ -122,92 +96,67 @@
             </script>
 
             <script
-                src="https://adviseren.erkenningen.nl/WebResource.axd?d=kcYtxgW0B5sz5LES8brOQ-PtlWVQJygjW3AHoc5Sj-cVqwdhPjhyqRf8OaXxYU0o2QqLiKO_5wuR2XQ8F0p-pb65s9Y1&amp;t=636765499264470882"
+                src="WebResource.axd"
                 type="text/javascript"
             ></script>
 
             <script type="text/javascript">
-                var __editorOverrideCSSPath = "https://adviseren.erkenningen.nl/DesktopModules/Admin/RadEditorProvider/Css/EditorOverride.css";
+                var __editorOverrideCSSPath = "EditorOverride.css";
             </script>
-            <script type="text/javascript">
+            <!-- <script type="text/javascript">
                 var __textEditorSaveTemplateDialog = "https://adviseren.erkenningen.nl/DesktopModules/Admin/RadEditorProvider/Dialogs/SaveTemplate.aspx?Path=&TabId=246&ModuleId=811";
-            </script>
+            </script> -->
             <script type="text/javascript">
                 //<![CDATA[
   var __cultureInfo = {"name":"nl-NL","numberFormat":{"CurrencyDecimalDigits":2,"CurrencyDecimalSeparator":",","IsReadOnly":false,"CurrencyGroupSizes":[3],"NumberGroupSizes":[3],"PercentGroupSizes":[3],"CurrencyGroupSeparator":".","CurrencySymbol":"€","NaNSymbol":"NaN","CurrencyNegativePattern":12,"NumberNegativePattern":1,"PercentPositivePattern":0,"PercentNegativePattern":0,"NegativeInfinitySymbol":"-Infinity","NegativeSign":"-","NumberDecimalDigits":2,"NumberDecimalSeparator":",","NumberGroupSeparator":".","CurrencyPositivePattern":2,"PositiveInfinitySymbol":"Infinity","PositiveSign":"+","PercentDecimalDigits":2,"PercentDecimalSeparator":",","PercentGroupSeparator":".","PercentSymbol":"%","PerMilleSymbol":"‰","NativeDigits":["0","1","2","3","4","5","6","7","8","9"],"DigitSubstitution":1},"dateTimeFormat":{"AMDesignator":"","Calendar":{"MinSupportedDateTime":"\/Date(-62135596800000)\/","MaxSupportedDateTime":"\/Date(253402297199999)\/","AlgorithmType":1,"CalendarType":1,"Eras":[1],"TwoDigitYearMax":2029,"IsReadOnly":false},"DateSeparator":"-","FirstDayOfWeek":1,"CalendarWeekRule":2,"FullDateTimePattern":"dddd d MMMM yyyy HH:mm:ss","LongDatePattern":"dddd d MMMM yyyy","LongTimePattern":"HH:mm:ss","MonthDayPattern":"d MMMM","PMDesignator":"","RFC1123Pattern":"ddd, dd MMM yyyy HH\u0027:\u0027mm\u0027:\u0027ss \u0027GMT\u0027","ShortDatePattern":"d-M-yyyy","ShortTimePattern":"HH:mm","SortableDateTimePattern":"yyyy\u0027-\u0027MM\u0027-\u0027dd\u0027T\u0027HH\u0027:\u0027mm\u0027:\u0027ss","TimeSeparator":":","UniversalSortableDateTimePattern":"yyyy\u0027-\u0027MM\u0027-\u0027dd HH\u0027:\u0027mm\u0027:\u0027ss\u0027Z\u0027","YearMonthPattern":"MMMM yyyy","AbbreviatedDayNames":["zo","ma","di","wo","do","vr","za"],"ShortestDayNames":["zo","ma","di","wo","do","vr","za"],"DayNames":["zondag","maandag","dinsdag","woensdag","donderdag","vrijdag","zaterdag"],"AbbreviatedMonthNames":["jan","feb","mrt","apr","mei","jun","jul","aug","sep","okt","nov","dec",""],"MonthNames":["januari","februari","maart","april","mei","juni","juli","augustus","september","oktober","november","december",""],"IsReadOnly":false,"NativeCalendarName":"Gregoriaanse kalender","AbbreviatedMonthGenitiveNames":["jan","feb","mrt","apr","mei","jun","jul","aug","sep","okt","nov","dec",""],"MonthGenitiveNames":["januari","februari","maart","april","mei","juni","juli","augustus","september","oktober","november","december",""]},"eras":[1,"n.Chr.",null,0]};//]]>
             </script>
 
             <script
-                src="https://adviseren.erkenningen.nl/ScriptResource.axd?d=ZOQXKT7ZpvsI4-OOAYcNFq_2z1JwQLpejTZmdm_kx_Am8yXVGYcIVWDZGYc9-88_-Rr1u0kdwUABNrkn000p7-HHnOyALtl1asmzQio7uvhW81qC0&amp;t=23c9c237"
+                src="ScriptResource.axd"
                 type="text/javascript"
             ></script>
             <script
-                src="https://adviseren.erkenningen.nl/ScriptResource.axd?d=jghYDytmT6DPrEihG9N7XWpbeU5fGdKWoBZBxLXCc2xwfSxgzrMuWHvwVvsKC6r3KqQuMSuwClWFCKBLlTcU62L8TIq5_Yel5zQS7lYTV9QDav_FZa4yW6PeZkj7wIeXcWlsBA2&amp;t=23c9c237"
-                type="text/javascript"
-            ></script>
-            <div class="aspNetHidden">
-
-                <input
-                    type="hidden"
-                    name="__VIEWSTATEGENERATOR"
-                    id="__VIEWSTATEGENERATOR"
-                    value="CA0B0334"
-                >
-                <input
-                    type="hidden"
-                    name="__VIEWSTATEENCRYPTED"
-                    id="__VIEWSTATEENCRYPTED"
-                    value
-                >
-                <input
-                    type="hidden"
-                    name="__EVENTVALIDATION"
-                    id="__EVENTVALIDATION"
-                    value="7bWvS1FRjqhO6HBR9wNgOoeVVADoaFAeMgFb18FlRWvzj2Elrvgcoju/TRnzvV+nu3QKUanUmtwvv6B1FOGbH9i+5045LjEGU6EspGwLHvnkxKyg8c2E+Et+kVxRLbUbvDZezp4J7upecGyWi5QwSKIYIIaYXBazgEH7sEKDgqBwQE5jx0j1lnzhJqUl0RjRtLDKDn+itYlnjm0/EcSUGr65KX9d8ww7xumytG6RFzxudlA7WkKZDsimmg4E0TADT+/liOyaXG5E2o+oTL8BAlUCT0w3RoB43eXZ67+QCwjw0F5ufisI2Y5P7XltJDof7t+PGsR76DIpvxm/BUw8AjqYp/KC+LTnWUUc770tmKe7f51E9nLurTlECadGhgZUj/WfxieuKF6zVZr632T/5J0kr39xISwOpVLlKy2zyXU/7tuPpo6D3rkJTpdOovUl4slqrW1SNY6fJwvQH5OsllR9kPuzqulVWWkUvFXfMXPOYqrE"
-                >
-            </div>
-            <script
-                src="https://adviseren.erkenningen.nl/js/dnn.js"
+                src="ScriptResource2.axd"
                 type="text/javascript"
             ></script>
             <script
-                src="https://adviseren.erkenningen.nl/js/dnn.modalpopup.js"
+                src="dnn.js"
                 type="text/javascript"
             ></script>
             <script
-                src="https://adviseren.erkenningen.nl/Resources/Shared/Scripts/jquery/jquery.hoverIntent.min.js"
+                src="dnn.modalpopup.js"
                 type="text/javascript"
             ></script>
             <script
-                src="https://adviseren.erkenningen.nl/Portals/_default/skins/erkenningenbootstrap3/js/jquery.smartmenus.js"
+                src="jquery.smartmenus.js"
                 type="text/javascript"
             ></script>
             <script
-                src="https://adviseren.erkenningen.nl/Portals/_default/skins/erkenningenbootstrap3/js/jquery.smartmenus.bootstrap.js"
+                src="jquery.smartmenus.bootstrap.js"
                 type="text/javascript"
             ></script>
             <script
-                src="https://adviseren.erkenningen.nl/Portals/_default/skins/erkenningenbootstrap3/js/scripts.js"
+                src="scripts.js"
                 type="text/javascript"
             ></script>
             <script
-                src="https://adviseren.erkenningen.nl/js/dnncore.js"
+                src="dnncore.js"
                 type="text/javascript"
             ></script>
             <script
-                src="https://adviseren.erkenningen.nl/DesktopModules/Admin/RadEditorProvider/js/ClientScripts.js"
+                src="ClientScripts.js"
                 type="text/javascript"
             ></script>
             <script
-                src="https://adviseren.erkenningen.nl/DesktopModules/Admin/RadEditorProvider/js/RegisterDialogs.js"
+                src="RegisterDialogs.js"
                 type="text/javascript"
             ></script>
             <script
-                src="https://adviseren.erkenningen.nl/DesktopModules/Admin/RadEditorProvider/js/overrideCSS.js"
+                src="overrideCSS.js"
                 type="text/javascript"
             ></script>
             <script
-                src="https://adviseren.erkenningen.nl/Resources/Shared/Scripts/dnn.jquery.js"
+                src="dnn.jquery.js"
                 type="text/javascript"
             ></script>
             <script type="text/javascript">
@@ -241,9 +190,7 @@
                             >
                                 <img
                                     alt="Logo"
-                                    src="https://adviseren.erkenningen.nl/Portals/_default/skins/erkenningenbootstrap3/images/BE-logo.svg"
-                                    data-fallback="https://adviseren.erkenningen.nl/Portals/_default/skins/erkenningenbootstrap3/images/logo.png"
-                                    onerror="this.src=this.getAttribute('data-fallback');this.onerror=null;"
+                                    src="BE-logo.png"
                                 >
                             </a>
                             <a
@@ -251,14 +198,15 @@
                                 href="https://adviseren.erkenningen.nl/"
                                 title="Bureau Erkenningen"
                             >
-                                <img
+                                <!-- <img
                                     alt="Logo"
-                                    src="https://adviseren.erkenningen.nl/Portals/_default/skins/erkenningenbootstrap3/images/BE-logo.svg"
-                                    data-fallback="https://adviseren.erkenningen.nl/Portals/_default/skins/erkenningenbootstrap3/images/logo.png"
-                                    onerror="this.src=this.getAttribute('data-fallback');this.onerror=null;"
-                                >
+                                    src="BE-logo.png"
+                                > -->
                             </a>
-                            <nav id="nav-mobile">
+                            <nav
+                                id="nav-mobile"
+                                class="hidden"
+                            >
                                 <div class="ly-header-mobile">
                                     <div class="container-fluid clearfix">
                                         <a
@@ -272,15 +220,13 @@
                                         >
                                             <img
                                                 alt="Logo"
-                                                src="https://adviseren.erkenningen.nl/Portals/_default/skins/erkenningenbootstrap3/images/BE-logo.svg"
-                                                data-fallback="https://adviseren.erkenningen.nl/Portals/_default/skins/erkenningenbootstrap3/images/logo.png"
-                                                onerror="this.src=this.getAttribute('data-fallback');this.onerror=null;"
+                                                src="BE-logo.png"
                                             >
                                         </a>
                                     </div>
                                 </div>
 
-                                <ul class="ly-nav ly-nav-mobile">
+                                <ul class="ly-nav ly-nav-mobile hidden">
                                     <li class="nav-61 first inactive">
                                         <div class="ly-linkwrapper">
                                             <a href="https://adviseren.erkenningen.nl/Default.aspx?tabid=61">Home</a>
@@ -1818,15 +1764,15 @@
                 </div>
             </footer>
 
-            <!-- CDF(Css|/Portals/_default/skins/erkenningenbootstrap3/dist/full-package.css) -->
+            <!-- CDF(Css|full-package.css) -->
 
-            <!-- CDF(Javascript|/Portals/_default/skins/erkenningenbootstrap3/js/jquery.smartmenus.js) -->
-            <!-- CDF(Javascript|/Portals/_default/skins/erkenningenbootstrap3/js/jquery.smartmenus.bootstrap.js) -->
-            <!-- CDF(Javascript|/Portals/_default/skins/erkenningenbootstrap3/js/scripts.js) -->
+            <!-- CDF(Javascript|jquery.smartmenus.js) -->
+            <!-- CDF(Javascript|jquery.smartmenus.bootstrap.js) -->
+            <!-- CDF(Javascript|scripts.js) -->
 
-            <!-- CDF(Javascript|/Portals/_default/skins/erkenningenbootstrap3/node_modules/bootstrap-sass/assets/javascripts/bootstrap.min.js) -->
-            <!-- CDF(Javascript|/Portals/_default/skins/erkenningenbootstrap3/node_modules/sidr/dist/jquery.sidr.min.js) -->
-            <!-- CDF(Javascript|/Portals/_default/skins/erkenningenbootstrap3/dist/scripts.js) -->
+            <!-- CDF(Javascript|bootstrap.min.js) -->
+            <!-- CDF(Javascript|jquery.sidr.min.js) -->
+            <!-- CDF(Javascript|scripts.js) -->
 
             <input
                 name="ScrollTop"
@@ -1841,15 +1787,15 @@
                 value="`{`dnn_current_userid`:`771960`,`__scdoff`:`1`,`containerid_dnn_ctr754_ModuleContent`:`754`,`cookieid_dnn_ctr754_ModuleContent`:`_Module754_Visible`,`min_icon_754`:`/Portals/_default/Containers/ErkenningenBootstrap3Containers/images/DNN-minus.gif`,`max_icon_754`:`/Portals/_default/Containers/ErkenningenBootstrap3Containers/images/DNN-plus.gif`,`max_text`:`Maximaliseren`,`min_text`:`Minimaliseren`}"
             >
             <script
-                src="https://adviseren.erkenningen.nl/Portals/_default/skins/erkenningenbootstrap3/node_modules/bootstrap-sass/assets/javascripts/bootstrap.min.js"
+                src="bootstrap.min.js"
                 type="text/javascript"
             ></script>
             <script
-                src="https://adviseren.erkenningen.nl/Portals/_default/skins/erkenningenbootstrap3/node_modules/sidr/dist/jquery.sidr.min.js"
+                src="jquery.sidr.min.js"
                 type="text/javascript"
             ></script>
             <script
-                src="https://adviseren.erkenningen.nl/Portals/_default/skins/erkenningenbootstrap3/dist/scripts.js"
+                src="scripts.js"
                 type="text/javascript"
             ></script>
 
@@ -1955,23 +1901,23 @@
   //]]>
             </script>
         </form>
-        <link rel="stylesheet" type="text/css" href="https://adviseren.erkenningen.nl/DesktopModules/Admin/RadEditorProvider/Css/EditorOverride.css">
-        <!-- CDF(Javascript|/js/dnncore.js) -->
-        <!-- CDF(Javascript|/js/dnn.modalpopup.js) -->
-        <!-- CDF(Css|/Resources/Shared/stylesheets/dnndefault/7.0.0/default.css) -->
-        <!-- CDF(Css|/Portals/_default/Containers/ErkenningenBootstrap3Containers/Title_BlackBox.css) -->
-        <!-- CDF(Css|/DesktopModules/UserDefinedTable/module.css) -->
-        <!-- CDF(Css|/DesktopModules/UserDefinedTable/module.css) -->
-        <!-- CDF(Css|/Portals/1/portal.css) -->
-        <!-- CDF(Javascript|/DesktopModules/Admin/RadEditorProvider/js/ClientScripts.js) -->
-        <!-- CDF(Javascript|/DesktopModules/Admin/RadEditorProvider/js/RegisterDialogs.js) -->
-        <!-- CDF(Javascript|/DesktopModules/Admin/RadEditorProvider/js/overrideCSS.js) -->
+        <link rel="stylesheet" type="text/css" href="EditorOverride.css">
+        <!-- CDF(Javascript|dnncore.js) -->
+        <!-- CDF(Javascript|dnn.modalpopup.js) -->
+        <!-- CDF(Css|default.css) -->
+        <!-- CDF(Css|Title_BlackBox.css) -->
+        <!-- CDF(Css|module.css) -->
+        <!-- CDF(Css|module.css) -->
+        <!-- CDF(Css|portal.css) -->
+        <!-- CDF(Javascript|ClientScripts.js) -->
+        <!-- CDF(Javascript|RegisterDialogs.js) -->
+        <!-- CDF(Javascript|overrideCSS.js) -->
         <!-- CDF(Javascript|/js/dnn.js) -->
-        <!-- CDF(Javascript|/Resources/Shared/Scripts/jquery/jquery.hoverIntent.min.js) -->
-        <!-- CDF(Javascript|/Resources/Shared/Scripts/jquery/jquery.hoverIntent.min.js) -->
-        <!-- CDF(Javascript|/Resources/Shared/Scripts/dnn.jquery.js) -->
-        <!-- CDF(Javascript|/Resources/libraries/jQuery-UI/01_11_03/jquery-ui.js) -->
-        <!-- CDF(Javascript|/Resources/libraries/jQuery/01_09_01/jquery.js) -->
+        <!-- CDF(Javascript|jquery.hoverIntent.min.js) -->
+        <!-- CDF(Javascript|jquery.hoverIntent.min.js) -->
+        <!-- CDF(Javascript|dnn.jquery.js) -->
+        <!-- CDF(Javascript|jquery-ui.js) -->
+        <!-- CDF(Javascript|jquery.js) -->
 
         <div
             id="nav-main-offcanvas"
@@ -1992,15 +1938,13 @@
                         >
                             <img
                                 alt="Logo"
-                                src="https://adviseren.erkenningen.nl/Portals/_default/skins/erkenningenbootstrap3/images/BE-logo.svg"
-                                data-fallback="https://adviseren.erkenningen.nl/Portals/_default/skins/erkenningenbootstrap3/images/logo.png"
-                                onerror="this.src=this.getAttribute('data-fallback');this.onerror=null;"
+                                src="BE-logo.png"
                             >
                         </a>
                     </div>
                 </div>
 
-                <ul class="ly-nav ly-nav-mobile">
+                <ul class="ly-nav ly-nav-mobile hidden">
                     <li class="nav-61 first inactive">
                         <div class="ly-linkwrapper">
                             <a href="https://adviseren.erkenningen.nl/Default.aspx?tabid=61">Home</a>

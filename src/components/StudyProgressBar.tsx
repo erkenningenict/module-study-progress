@@ -1,18 +1,17 @@
 import React from 'react';
 import { ILicenseDetails, IParticipationPoint, IParticipation } from '../models/license-details';
 import './StudyProgressBar.css';
-// tslint:
-// import { Tooltip } from 'primereact/tooltip';
 import { Button } from 'primereact/button';
 
-interface StudyProgressBarProps {
-  licenseDetails: ILicenseDetails;
-}
-export const StudyProgressBar: React.SFC<StudyProgressBarProps> = (props) => {
+export const StudyProgressBar: React.FC<{ licenseDetails: ILicenseDetails }> = (props) => {
   const participationPoints = props.licenseDetails.ParticipationPoints;
   const participations = props.licenseDetails.Participations;
   let required: { themeId: number; themeName: string; done: boolean }[] = [];
-  let optional: { themeIds: number[]; themeName: string; done: boolean }[] = [];
+  let optional: {
+    themes: { themeId: number; themeName: string }[];
+    themeName: string;
+    done: boolean;
+  }[] = [];
   let optionalDone: number = 0;
   let availableThemes: { themeId: number; themeName: string }[] = [];
   const doneThemes: string[] = [];
@@ -53,16 +52,16 @@ export const StudyProgressBar: React.SFC<StudyProgressBarProps> = (props) => {
     }
     const themeName = doneThemes[index];
     optional.push({
-      themeIds: availableThemes.map((theme: any) => theme.themeId),
+      themes: availableThemes,
       themeName: !!themeName
         ? themeName
-        : `Thema naar keuze: ${availableThemes.map((theme) => theme.themeName).join(' of ')}`,
+        : `Thema naar keuze:${availableThemes.map((theme) => theme.themeName).join(' of ')}`,
       done: isDone,
     });
   }
   const colorGreen: string = '#6abbb7';
   const colorOrange: string = '#dd6b02';
-  const url: string = `${process.env.REACT_APP_DNN_SEARCH_COURSE_MODULE_URL}?themeIds=`;
+  const url: string = `${process.env.REACT_APP_DNN_SEARCH_COURSE_MODULE_URL}?themaId=`;
 
   const blocks = (
     <div className="block-container">
@@ -79,11 +78,10 @@ export const StudyProgressBar: React.SFC<StudyProgressBarProps> = (props) => {
               type="link"
               onClick={() => {
                 const fullUrl = `${url}${requiredBlock.themeId}`;
-                console.log('#DH# url', fullUrl);
                 window.location.assign(fullUrl);
               }}
               label={requiredBlock.themeName}
-              tooltip="Klik om bijeenkomsten te kiezen van dit thema"
+              tooltip={`Klik om bijeenkomsten te kiezen van thema ${requiredBlock.themeName}`}
               tooltipOptions={{ position: 'top' }}
             />
           )}
@@ -98,17 +96,28 @@ export const StudyProgressBar: React.SFC<StudyProgressBarProps> = (props) => {
           {optionalBlock.done ? (
             <Button type="link" disabled label={optionalBlock.themeName} />
           ) : (
-            <Button
-              type="link"
-              onClick={() => {
-                const fullUrl = `${url}${optionalBlock.themeIds}`;
-                console.log('#DH# url', fullUrl);
-                window.location.assign(fullUrl);
-              }}
-              label={optionalBlock.themeName}
-              tooltip="Klik om bijeenkomsten te kiezen van dit thema"
-              tooltipOptions={{ position: 'top' }}
-            />
+            <div>
+              Thema naar keuze:{' '}
+              {optionalBlock.themes.map(
+                (theme: { themeId: number; themeName: string }, index: number) => {
+                  return (
+                    <div key={index}>
+                      <Button
+                        type="link"
+                        onClick={() => {
+                          const fullUrl = `${url}${theme.themeId}`;
+                          window.location.assign(fullUrl);
+                        }}
+                        label={theme.themeName}
+                        tooltip={`Klik om bijeenkomsten te kiezen van thema ${theme.themeName}`}
+                        tooltipOptions={{ position: 'top' }}
+                      />{' '}
+                      {index !== optionalBlock.themes.length - 1 && 'of '}
+                    </div>
+                  );
+                },
+              )}
+            </div>
           )}
         </div>
       ))}

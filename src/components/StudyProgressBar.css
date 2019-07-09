@@ -14,15 +14,17 @@
 }
 
 .block {
-  width: 150px;
-  min-width: 150px;
-  height: 100px;
+  width: 170px;
+  min-width: 170px;
+  height: 120px;
   font-weight: bold;
   margin-right: 20px;
   margin-top: 20px;
   text-align: center;
   display: flex;
   align-items: center;
+  justify-content: center;
+  padding: 10px;
 }
 
 .block > a {
@@ -36,18 +38,30 @@
 .block > p {
   margin: auto;
 }
+.block > div {
+  color: #000;
+}
+.block > div > div > a,
+.block > div > div > a:visited {
+  color: #000;
+  text-decoration: underline;
+}
 
 .orange {
   background: #dd6b02;
 }
 
-.block > button {
+.block > button,
+.block > div > div > button {
   border: none;
   background: transparent;
   color: #000;
-  width: 100%;
-  height: 100%;
   margin-right: 0;
+  padding: 0;
+}
+.block > div > div > button > span.p-button-text {
+  padding: 0;
+  text-decoration: underline;
 }
 
 .block > button > .p-button-text {
