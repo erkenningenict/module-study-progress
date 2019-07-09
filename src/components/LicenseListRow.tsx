@@ -1,11 +1,8 @@
 import React from 'react';
 import { toDutchDate } from '../helpers/date-utils';
 import { ILicenseDetails, ILicenseAnnotation } from '../models/license-details';
-// import TransitionGroup from 'react-transition-group/TransitionGroup';
-// import CSSTransition from 'react-transition-group/CSSTransition';
 
 import StudyProgressContainer from '../containers/StudyProgressContainer';
-import ProgressBar from './ProgressBar';
 import './LicenseListRow.css';
 
 interface ILicenseListRowProps {
@@ -67,9 +64,6 @@ class LicenseListRow extends React.Component<ILicenseListRowProps, ILicenseListR
         <td>{statusLabel}</td>
         <td className="text-right">{toDutchDate(row.StartDate)}</td>
         <td className="text-right">{toDutchDate(row.EndDate)}</td>
-        {/* <td>
-          <ProgressBar licenseDetails={row} showLabels={false} />
-        </td> */}
       </tr>,
     ];
     const duration = 300;
@@ -89,8 +83,6 @@ class LicenseListRow extends React.Component<ILicenseListRowProps, ILicenseListR
     const extendedRow = (
       <tr key={row.LicenseId + 1}>
         <td colSpan={7} style={{ padding: 0, borderTop: 0 }}>
-          {/* <TransitionGroup className="example" key={row.LicenseId + 1} component={null}>
-            <CSSTransition key={row.LicenseId + 1} timeout={500} classNames="fade"> */}
           <div
             style={{
               ...defaultStyle,
@@ -109,8 +101,6 @@ class LicenseListRow extends React.Component<ILicenseListRowProps, ILicenseListR
               />
             </div>
           </div>
-          {/* </CSSTransition>
-          </TransitionGroup> */}
         </td>
       </tr>
     );
