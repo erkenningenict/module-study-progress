@@ -1,7 +1,7 @@
 import React from 'react';
 import { ILicenseDetails, IParticipationPoint, IParticipation } from '../models/license-details';
 import './StudyProgressBar.css';
-import { Button } from 'primereact/button';
+import { Button } from '@erkenningen/ui';
 
 export const StudyProgressBar: React.FC<{ licenseDetails: ILicenseDetails }> = (props) => {
   const participationPoints = props.licenseDetails.ParticipationPoints;
@@ -72,10 +72,9 @@ export const StudyProgressBar: React.FC<{ licenseDetails: ILicenseDetails }> = (
           key={index}
         >
           {requiredBlock.done ? (
-            <Button type="link" disabled label={requiredBlock.themeName} className="done" />
+            <Button disabled={true} label={requiredBlock.themeName} className="done" />
           ) : (
             <Button
-              type="link"
               onClick={() => {
                 const fullUrl = `${url}${requiredBlock.themeId}`;
                 window.location.assign(fullUrl);
@@ -103,7 +102,6 @@ export const StudyProgressBar: React.FC<{ licenseDetails: ILicenseDetails }> = (
                   return (
                     <div key={index}>
                       <Button
-                        type="link"
                         onClick={() => {
                           const fullUrl = `${url}${theme.themeId}`;
                           window.location.assign(fullUrl);

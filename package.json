@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "@erkenningen/build": "1.0.7",
-    "@erkenningen/ui": "1.0.41",
+    "@erkenningen/ui": "^1.0.43",
     "axios": "0.19.0",
     "classnames": "2.2.6",
     "primereact": "3.1.2",

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Panel } from '@erkenningen/ui';
+import { Panel, TableResponsive } from '@erkenningen/ui';
 import { ILicenseDetails, ILicenseAnnotation, IParticipation } from '../models/license-details';
 import { ParticipationDetailsRow } from '../components/ParticipationDetailsRow';
 import { StudyProgressBar } from '../components/StudyProgressBar';
@@ -39,7 +39,7 @@ export const StudyProgressContainer: React.FC<IStudyProgressContainerProps> = (p
         Wij hebben voor {licenseDetails.CertificateName} de volgende bijeenkomsten van u
         geregistreerd:
       </p>
-      <div className="table-responsive">
+      <TableResponsive>
         <table className="table table-striped">
           <thead>
             <tr>
@@ -51,7 +51,7 @@ export const StudyProgressContainer: React.FC<IStudyProgressContainerProps> = (p
           </thead>
           <tbody>{participationRows}</tbody>
         </table>
-      </div>
+      </TableResponsive>
       <p>Is de status ‘Voorlopig’? Dan is registratie van uw deelname nog niet volledig.</p>
       <p>
         Is de status ‘Aangemeld’? Dan staat uw deelname nog niet geregistreerd, mogelijk omdat de
