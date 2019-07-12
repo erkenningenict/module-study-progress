@@ -76,7 +76,9 @@ export const StudyProgressBar: React.FC<{ licenseDetails: ILicenseDetails }> = (
           ) : (
             <Button
               onClick={() => {
-                const fullUrl = `${url}${requiredBlock.themeId}`;
+                const fullUrl = `${url}${requiredBlock.themeId}&certificeringId=${
+                  props.licenseDetails.LicenseId
+                }`;
                 window.location.assign(fullUrl);
               }}
               label={requiredBlock.themeName}
@@ -103,7 +105,9 @@ export const StudyProgressBar: React.FC<{ licenseDetails: ILicenseDetails }> = (
                     <div key={index}>
                       <Button
                         onClick={() => {
-                          const fullUrl = `${url}${theme.themeId}`;
+                          const fullUrl = `${url}${theme.themeId}&certificeringId=${
+                            props.licenseDetails.LicenseId
+                          }`;
                           window.location.assign(fullUrl);
                         }}
                         label={theme.themeName}
