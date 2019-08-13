@@ -44,6 +44,7 @@ export const StudyProgressContainer: React.FC<IStudyProgressContainerProps> = (p
           <thead>
             <tr>
               <th>Thema</th>
+              <th>Erkenningsnummer</th>
               <th>Titel</th>
               <th>Datum gevolgd</th>
               <th>Status</th>

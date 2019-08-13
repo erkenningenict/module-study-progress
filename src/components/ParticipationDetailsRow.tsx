@@ -7,6 +7,7 @@ export const ParticipationDetailsRow: React.FC<{ row: IParticipation }> = (props
   return (
     <tr key={row.ParticipationId}>
       <td>{row.Course.Theme}</td>
+      <td>{row.Course.CourseCode}</td>
       <td>{row.Course.Title}</td>
       <td>{toDutchDate(row.Course.Date)}</td>
       <td>{row.Status}</td>
