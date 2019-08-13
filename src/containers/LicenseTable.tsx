@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { Panel, PanelBody, TableResponsive } from '@erkenningen/ui';
 import { ILicenseDetails } from '../models/license-details';
 import { LicenseListRow } from '../components/LicenseListRow';
@@ -32,7 +32,6 @@ export const LicenseTable: React.FC<ILicenseTableProps> = (props) => {
     >
       <PanelBody>
         <p>Wij hebben de volgende licenties van u geregistreerd:</p>
-        <p>(Klik op een pasnummer om uw studievorderingen te bekijken)</p>
       </PanelBody>
       <TableResponsive>
         <table className="table table-striped">

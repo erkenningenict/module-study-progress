@@ -15,10 +15,10 @@ export const StudyProgressBar: React.FC<{ licenseDetails: ILicenseDetails }> = (
   let optionalDone: number = 0;
   let availableThemes: { themeId: number; themeName: string }[] = [];
   const doneThemes: string[] = [];
-  participations.map((participation: IParticipation) => {
+  participations.forEach((participation: IParticipation) => {
     doneThemes.push(participation.Course.Theme);
   });
-  participationPoints.map((participationPoint: IParticipationPoint) => {
+  participationPoints.forEach((participationPoint: IParticipationPoint) => {
     // Check all required points
     if (participationPoint.RequiredPoints >= 1) {
       for (let index = 0; index < participationPoint.RequiredPoints; index++) {
@@ -76,9 +76,7 @@ export const StudyProgressBar: React.FC<{ licenseDetails: ILicenseDetails }> = (
           ) : (
             <Button
               onClick={() => {
-                const fullUrl = `${url}${requiredBlock.themeId}&certificeringId=${
-                  props.licenseDetails.LicenseId
-                }`;
+                const fullUrl = `${url}${requiredBlock.themeId}&certificeringId=${props.licenseDetails.LicenseId}`;
                 window.location.assign(fullUrl);
               }}
               label={requiredBlock.themeName}
@@ -105,9 +103,7 @@ export const StudyProgressBar: React.FC<{ licenseDetails: ILicenseDetails }> = (
                     <div key={index}>
                       <Button
                         onClick={() => {
-                          const fullUrl = `${url}${theme.themeId}&certificeringId=${
-                            props.licenseDetails.LicenseId
-                          }`;
+                          const fullUrl = `${url}${theme.themeId}&certificeringId=${props.licenseDetails.LicenseId}`;
                           window.location.assign(fullUrl);
                         }}
                         label={theme.themeName}

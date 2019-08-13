@@ -4,8 +4,10 @@ import { LicenseTable } from './containers/LicenseTable';
 import { ILicenseDetails } from './models/license-details';
 import { StudyProgressContainer } from './containers/StudyProgressContainer';
 import 'primereact/resources/primereact.min.css';
-import '@fortawesome/fontawesome-free/css/all.min.css';
-import { ThemeContext, Alert, Spinner } from '@erkenningen/ui';
+// import '@fortawesome/fontawesome-free/css/all.min.css';
+import 'primeicons/primeicons.css';
+import 'primereact/resources/primereact.min.css';
+import { Alert, Spinner } from '@erkenningen/ui';
 
 export const App: React.FC<{}> = (props) => {
   const [showStudyProgressForLicenseId, setShowStudyProgressForLicenseId] = useState<
@@ -30,7 +32,7 @@ export const App: React.FC<{}> = (props) => {
   }, []);
 
   return (
-    <ThemeContext.Provider value={{ mode: 'student' }}>
+    <>
       {isLoading && !data && <Spinner />}
       {isError && (
         <Alert type="danger">
@@ -54,6 +56,6 @@ export const App: React.FC<{}> = (props) => {
           onShowAllLicenses={() => setShowStudyProgressForLicenseId(undefined)}
         />
       )}
-    </ThemeContext.Provider>
+    </>
   );
 };

@@ -1,5 +1,5 @@
 import React from 'react';
-import { toDutchDate } from '../helpers/date-utils';
+import { Button, toDutchDate } from '@erkenningen/ui';
 import { ILicenseDetails, ILicenseAnnotation } from '../models/license-details';
 
 import './LicenseListRow.css';
@@ -30,7 +30,7 @@ export const LicenseListRow: React.FC<ILicenseListRowProps> = (props) => {
   let certificateName = row.CertificateName;
   if (row.LicenseAnnotations) {
     let annotations: string = '';
-    row.LicenseAnnotations.map((annotation: ILicenseAnnotation) => {
+    row.LicenseAnnotations.forEach((annotation: ILicenseAnnotation) => {
       annotations += ` + ${annotation.AnnotationCode} (vanaf: ${toDutchDate(
         annotation.FromDate.toString(),
       )})`;
@@ -40,9 +40,13 @@ export const LicenseListRow: React.FC<ILicenseListRowProps> = (props) => {
   return (
     <tr key={row.LicenseId}>
       <td className="text-right">
-        <a href="#" className="licenseNr" onClick={() => props.onSelectLicense(row)}>
-          {row.CertificateNr}
-        </a>
+        <Button
+          type="link"
+          label={row.CertificateNr}
+          onClick={() => props.onSelectLicense(row)}
+          icon="pi pi-chevron-right"
+          tooltip="Bekijk de studievordering voor deze licentie"
+        ></Button>
       </td>
       <td>{certificateName}</td>
       <td>{statusLabel}</td>

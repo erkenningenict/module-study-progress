@@ -1,10 +1,8 @@
-import * as React from 'react';
-import { Panel, TableResponsive } from '@erkenningen/ui';
+import React from 'react';
+import { Panel, TableResponsive, toDutchDate, Button } from '@erkenningen/ui';
 import { ILicenseDetails, ILicenseAnnotation, IParticipation } from '../models/license-details';
 import { ParticipationDetailsRow } from '../components/ParticipationDetailsRow';
 import { StudyProgressBar } from '../components/StudyProgressBar';
-
-import { toDutchDate } from '../helpers/date-utils';
 
 interface IStudyProgressContainerProps {
   licenseDetails: ILicenseDetails | null;
@@ -19,7 +17,7 @@ export const StudyProgressContainer: React.FC<IStudyProgressContainerProps> = (p
   let certificateName = licenseDetails.CertificateName;
   if (licenseDetails.LicenseAnnotations) {
     let annotations: string = '';
-    licenseDetails.LicenseAnnotations.map((annotation: ILicenseAnnotation) => {
+    licenseDetails.LicenseAnnotations.forEach((annotation: ILicenseAnnotation) => {
       annotations += ` + ${annotation.AnnotationCode} (vanaf: ${toDutchDate(
         annotation.FromDate.toString(),
       )})`;
@@ -60,22 +58,17 @@ export const StudyProgressContainer: React.FC<IStudyProgressContainerProps> = (p
       </p>
     </div>
   );
-
   return (
     <Panel title="Studievordering" key={licenseDetails.LicenseId}>
-      <a
-        href="#"
-        style={{
-          color: 'rgb(106, 187, 183)',
-          fontWeight: 'bold',
-          textAlign: 'right',
-          display: 'block',
-        }}
-        onClick={() => props.onShowAllLicenses()}
-      >
-        <i className="fa fa-chevron-left" aria-hidden={true} style={{ marginRight: '10px' }} />
-        Terug naar mijn licenties
-      </a>
+      <div className="">
+        <Button
+          type="greenLink"
+          onClick={() => props.onShowAllLicenses()}
+          label="Terug naar mijn licenties"
+          icon="pi pi-chevron-left"
+          className="pull-right"
+        ></Button>
+      </div>
       <h4 style={{ lineHeight: '28px' }}>
         {licenseDetails.CertificateNr} - {certificateName}
         <br />

@@ -1,6 +1,6 @@
 import React from 'react';
 import { IParticipation } from '../models/license-details';
-import { toDutchDate } from '../helpers/date-utils';
+import { toDutchDate } from '@erkenningen/ui';
 
 export const ParticipationDetailsRow: React.FC<{ row: IParticipation }> = (props) => {
   const { row } = props;
