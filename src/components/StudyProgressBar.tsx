@@ -21,12 +21,27 @@ export const StudyProgressBar: React.FC<{ licenseDetails: ILicenseDetails }> = (
   participationPoints.forEach((participationPoint: IParticipationPoint) => {
     // Check all required points
     if (participationPoint.RequiredPoints >= 1) {
-      for (let index = 0; index < participationPoint.RequiredPoints; index++) {
+      let requiredDone: number = participationPoint.CountedPoints;
+      let requiredTodo: number =
+        participationPoint.RequiredPoints - participationPoint.CountedPoints;
+      if (requiredTodo < 0) {
+        requiredTodo = 0;
+      }
+      for (
+        let requiredParticipation = 0;
+        requiredParticipation < participationPoint.RequiredPoints;
+        requiredParticipation++
+      ) {
+        let done = false;
+        if (requiredDone > 0) {
+          done = true;
+        }
         required.push({
           themeId: participationPoint.ThemeId,
           themeName: `${participationPoint.ThemeName} (verplicht)`,
-          done: participationPoint.CountedPoints > 0,
+          done: done,
         });
+        requiredDone = requiredDone - 1;
         if (doneThemes.indexOf(participationPoint.ThemeName) > -1) {
           doneThemes.splice(doneThemes.indexOf(participationPoint.ThemeName), 1);
         }
@@ -43,6 +58,14 @@ export const StudyProgressBar: React.FC<{ licenseDetails: ILicenseDetails }> = (
       });
     }
   });
+  if (availableThemes.length === 0) {
+    participationPoints.forEach((participationPoint: IParticipationPoint) => {
+      availableThemes.push({
+        themeId: participationPoint.ThemeId,
+        themeName: participationPoint.ThemeName,
+      });
+    });
+  }
   for (let index = 0; index < props.licenseDetails.RequiredPoints - required.length; index++) {
     let isDone = false;
 
@@ -72,13 +95,14 @@ export const StudyProgressBar: React.FC<{ licenseDetails: ILicenseDetails }> = (
           key={index}
         >
           {requiredBlock.done ? (
-            <Button disabled={true} label={requiredBlock.themeName} className="done" />
+            <Button disabled={true} type="link" label={requiredBlock.themeName} className="done" />
           ) : (
             <Button
               onClick={() => {
                 const fullUrl = `${url}${requiredBlock.themeId}&certificeringId=${props.licenseDetails.LicenseId}`;
                 window.location.assign(fullUrl);
               }}
+              type="link"
               label={requiredBlock.themeName}
               tooltip={`Klik om bijeenkomsten te kiezen van thema ${requiredBlock.themeName}`}
               tooltipOptions={{ position: 'top' }}
@@ -106,6 +130,7 @@ export const StudyProgressBar: React.FC<{ licenseDetails: ILicenseDetails }> = (
                           const fullUrl = `${url}${theme.themeId}&certificeringId=${props.licenseDetails.LicenseId}`;
                           window.location.assign(fullUrl);
                         }}
+                        type="link"
                         label={theme.themeName}
                         tooltip={`Klik om bijeenkomsten te kiezen van thema ${theme.themeName}`}
                         tooltipOptions={{ position: 'top' }}

@@ -3,7 +3,7 @@
   margin-bottom: 3rem;
   margin-top: 3rem;
   background: #eee;
-  padding: 2rem;
+  padding: 0 2rem 2rem 2rem;
   flex-wrap: wrap;
 }
 
@@ -14,9 +14,9 @@
 }
 
 .block {
-  width: 170px;
-  min-width: 170px;
-  height: 120px;
+  width: 200px;
+  min-width: 200px;
+  height: 140px;
   font-weight: bold;
   margin-right: 20px;
   margin-top: 20px;

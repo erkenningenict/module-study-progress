@@ -87,7 +87,11 @@ export const StudyProgressContainer: React.FC<IStudyProgressContainerProps> = (p
       ) : (
         <p>Oranje betekent dat u nog een bijeenkomst over dit thema moet volgen.</p>
       )}
-      {participationRows.length > 0 ? participationDetails : null}
+      {participationRows.length > 0 ? (
+        participationDetails
+      ) : (
+        <p>U heeft nog geen bijeenkomsten gevolgd of deze zijn nog niet geregistreerd.</p>
+      )}
       <p>Neem bij twijfel contact op met uw kennisaanbieder.</p>
     </Panel>
   );

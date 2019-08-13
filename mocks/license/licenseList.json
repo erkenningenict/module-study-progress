@@ -58,6 +58,14 @@
       "status": 200,
       "file": "mocks/license/data/getLicenseList-79469-with-kba.json",
       "delay": 200
+    },
+    "200-distributie": {
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "status": 200,
+      "file": "mocks/license/data/getLicenseList-Distributie.json",
+      "delay": 200
     }
   }
 }
