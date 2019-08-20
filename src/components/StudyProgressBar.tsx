@@ -50,8 +50,15 @@ export const StudyProgressBar: React.FC<{ licenseDetails: ILicenseDetails }> = (
         // Required point is done as optional theme
         optionalDone += participationPoint.CountedPoints - participationPoint.RequiredPoints;
       }
+      if (participationPoint.ThemeName !== 'KBA' && participationPoint.ThemeName !== 'KBA-GB') {
+        availableThemes.push({
+          themeId: participationPoint.ThemeId,
+          themeName: participationPoint.ThemeName,
+        });
+      }
     } else {
       optionalDone += participationPoint.CountedPoints;
+
       availableThemes.push({
         themeId: participationPoint.ThemeId,
         themeName: participationPoint.ThemeName,

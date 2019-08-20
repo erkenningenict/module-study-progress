@@ -66,6 +66,14 @@
       "status": 200,
       "file": "mocks/license/data/getLicenseList-Distributie.json",
       "delay": 200
+    },
+    "200-ug+kba-failing": {
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "status": 200,
+      "file": "mocks/license/data/getLicenseList--ug-kba.json",
+      "delay": 200
     }
   }
 }
