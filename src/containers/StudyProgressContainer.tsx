@@ -51,7 +51,10 @@ export const StudyProgressContainer: React.FC<IStudyProgressContainerProps> = (p
           <tbody>{participationRows}</tbody>
         </table>
       </TableResponsive>
-      <p>Is de status ‘Voorlopig’? Dan is registratie van uw deelname nog niet volledig.</p>
+      <p>
+        Is de status ‘Voorlopig’? Dan moet de kennisaanbieder de registratie nog betalen aan Bureau
+        Erkenningen.
+      </p>
       <p>
         Is de status ‘Aangemeld’? Dan staat uw deelname nog niet geregistreerd, mogelijk omdat de
         bijeenkomst nog moet plaatsvinden.
