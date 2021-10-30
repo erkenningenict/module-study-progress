@@ -52,7 +52,7 @@
   "build:dnn": "node ./node_modules/@erkenningen/build/scripts/create-dnn-module.js",
   "build:prod": "npm-run-all build build:dnn",
   "build:deploy": "node ./node_modules/@erkenningen/build/scripts/create-deploy-file.js",
-  "build:netlify": "cp public/index.netlify.html public/index.html && node ./build.js",
+  "build:netlify": "cp public/index.netlify.html public/index.html && npm run build",
   "build": "react-scripts build",
   "precommit": "pretty-quick --staged",
   "test": "react-scripts test",

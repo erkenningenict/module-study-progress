@@ -11,9 +11,7 @@ import { ApolloClient, ApolloProvider, HttpLink, InMemoryCache } from '@apollo/c
 import { App } from './App';
 import { ThemeContext, ThemeBureauErkenningen } from '@erkenningen/ui/layout/theme';
 
-const cache = new InMemoryCache({
-  
-});
+const cache = new InMemoryCache({});
 
 const client = new ApolloClient({
   link: new HttpLink({
@@ -25,12 +23,11 @@ const client = new ApolloClient({
 
 ReactDOM.render(
   <ApolloProvider client={client}>
-   <ThemeBureauErkenningen>
+    <ThemeBureauErkenningen>
       <ThemeContext.Provider value={{ mode: ERKENNINGEN_SITE_TYPE }}>
-    <App />
-  </ThemeContext.Provider>
-  </ThemeBureauErkenningen>
-  </ApolloProvider>
-  ,
-  document.getElementById('module-study-progress'),
+        <App />
+      </ThemeContext.Provider>
+    </ThemeBureauErkenningen>
+  </ApolloProvider>,
+  document.getElementById('erkenningen-module-study-progress'),
 );
