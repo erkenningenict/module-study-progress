@@ -1,40 +1,41 @@
 import React from 'react';
-import { Panel, TableResponsive, toDutchDate, Button } from '@erkenningen/ui';
-import { ILicenseDetails, ILicenseAnnotation, IParticipation } from '../models/license-details';
-import { ParticipationDetailsRow } from '../components/ParticipationDetailsRow';
+import { Panel } from '@erkenningen/ui/layout/panel';
+import { TableResponsive } from '@erkenningen/ui/layout/table';
+import { toDutchDate } from '@erkenningen/ui/utils';
+import { Button } from '@erkenningen/ui/components/button';
+import { StudieresultaatDetailsRow } from '../components/StudieresultaatDetailsRow';
 import { StudyProgressBar } from '../components/StudyProgressBar';
+import { StudyProgressDetailFragment } from '../generated/graphql';
 
-interface IStudyProgressContainerProps {
-  licenseDetails: ILicenseDetails | null;
-  onShowAllLicenses: any;
+interface StudyProgressContainerProps {
+  studyProgress: StudyProgressDetailFragment;
+  onShowAllLicenses: () => void;
 }
 
-export const StudyProgressContainer: React.FC<IStudyProgressContainerProps> = (props) => {
-  const { licenseDetails } = props;
-  if (licenseDetails === null) {
+export const StudyProgressContainer: React.FC<StudyProgressContainerProps> = ({
+  studyProgress,
+  onShowAllLicenses,
+}) => {
+  if (studyProgress === null) {
     return null;
   }
-  let certificateName = licenseDetails.CertificateName;
-  if (licenseDetails.LicenseAnnotations) {
-    let annotations: string = '';
-    licenseDetails.LicenseAnnotations.forEach((annotation: ILicenseAnnotation) => {
-      annotations += ` + ${annotation.AnnotationCode} (vanaf: ${toDutchDate(
-        annotation.FromDate.toString(),
+
+  const certificering = studyProgress.Certificering;
+  let certificateName = certificering.Certificaat?.Naam;
+  if (certificering.CertificeringAantekeningen) {
+    let aantekeningen = '';
+    certificering.CertificeringAantekeningen?.forEach((aantekening) => {
+      aantekeningen += ` + ${aantekening?.AantekeningCode} (vanaf: ${toDutchDate(
+        aantekening?.VanafDatum,
       )})`;
     });
-    certificateName += annotations;
+    certificateName += aantekeningen;
   }
-  const participationRows: any[] = [];
-  licenseDetails.Participations.map((participation: IParticipation) =>
-    participationRows.push(
-      <ParticipationDetailsRow row={participation} key={participation.ParticipationId} />,
-    ),
-  );
 
   const participationDetails = (
     <div>
       <p>
-        Wij hebben voor {licenseDetails.CertificateName} de volgende bijeenkomsten van u
+        Wij hebben voor {certificering.Certificaat?.Naam} de volgende bijeenkomsten van u
         geregistreerd:
       </p>
       <TableResponsive>
@@ -48,7 +49,14 @@ export const StudyProgressContainer: React.FC<IStudyProgressContainerProps> = (p
               <th>Status</th>
             </tr>
           </thead>
-          <tbody>{participationRows}</tbody>
+          <tbody>
+            {studyProgress?.Studieresultaten!.map((studieresultaat) => (
+              <StudieresultaatDetailsRow
+                row={studieresultaat}
+                key={studieresultaat?.StudieresultaatID}
+              />
+            ))}
+          </tbody>
         </table>
       </TableResponsive>
       <p>
@@ -62,35 +70,35 @@ export const StudyProgressContainer: React.FC<IStudyProgressContainerProps> = (p
     </div>
   );
   return (
-    <Panel title="Studievordering" key={licenseDetails.LicenseId}>
+    <Panel title="Studievordering" key={certificering.CertificeringID}>
       <div className="">
         <Button
           type="greenLink"
-          onClick={() => props.onShowAllLicenses()}
+          onClick={() => onShowAllLicenses()}
           label="Terug naar mijn licenties"
           icon="pi pi-chevron-left"
           className="pull-right"
         ></Button>
       </div>
       <h4 style={{ lineHeight: '28px' }}>
-        {licenseDetails.CertificateNr} - {certificateName}
+        {certificering.NummerWeergave} - {certificateName}
         <br />
-        Geldig tot: {toDutchDate(licenseDetails.EndDate)}
+        Geldig tot: {toDutchDate(certificering.EindDatum)}
       </h4>
       <p>
-        Tot {toDutchDate(licenseDetails.EndDate)} heeft u de tijd om uw licentie{' '}
-        {licenseDetails.CertificateName} te verlengen. U volgt daarvoor minimaal{' '}
-        {licenseDetails.RequiredPoints} bijeenkomsten:
+        Tot {toDutchDate(certificering.EindDatum)} heeft u de tijd om uw licentie{' '}
+        {certificering.Certificaat?.Naam} te verlengen. U volgt daarvoor minimaal{' '}
+        {studyProgress?.RequiredPoints} bijeenkomsten:
       </p>
-      <StudyProgressBar licenseDetails={licenseDetails} />
-      {licenseDetails.RequiredPointsTodo === 0 ? (
+      <StudyProgressBar studyProgress={studyProgress} />
+      {studyProgress?.RequiredPointsTodo === 0 ? (
         <p>
           <strong>Alles groen? Gefeliciteerd! U ontvangt/heeft een verlengingslicentie.</strong>
         </p>
       ) : (
         <p>Oranje betekent dat u nog een bijeenkomst over dit thema moet volgen.</p>
       )}
-      {participationRows.length > 0 ? (
+      {(studyProgress!.Studieresultaten?.length || 0) > 0 ? (
         participationDetails
       ) : (
         <p>U heeft nog geen bijeenkomsten gevolgd of deze zijn nog niet geregistreerd.</p>

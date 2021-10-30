@@ -1,0 +1,72 @@
+query getMyStudyProgress {
+  my {
+    StudyProgress {
+      ...StudyProgressDetail
+    }
+  }
+}
+
+fragment StudyProgressDetail on StudyProgress {
+  Certificering {
+    ...CertificeringFields
+  }
+  ...StudyProgressFields
+}
+
+fragment CertificeringFields on Certificering {
+  CertificeringID
+  Certificaat {
+    Naam
+  }
+  NummerWeergave
+  Status
+  BeginDatum
+  EindDatum
+  DatumVoldaan
+  DatumIngetrokkenVan
+  DatumIngetrokkenTot
+  CertificeringAantekeningen {
+    AantekeningCode
+    VanafDatum
+  }
+}
+
+fragment StudyProgressFields on StudyProgress {
+  RequiredPoints
+  DonePoints
+  CountedPoints
+  RequiredPointsTodo
+  Completed
+  PointsToDo
+  ParticipationPoints {
+    ...ParticipationPointsFields
+  }
+  Studieresultaten {
+    ...StudieresultaatFields
+  }
+}
+
+fragment ParticipationPointsFields on ParticipationPoint {
+  ThemaId
+  ThemaNaam
+  RequiredPoints
+  DonePoints
+  CountedPoints
+}
+
+fragment StudieresultaatFields on Studieresultaat {
+  StudieresultaatID
+  Status
+  Cursus {
+    CursusCode
+    Titel
+    Status
+    Vak {
+      Titel
+      ThemaNaam
+    }
+    Sessies {
+      Datum
+    }
+  }
+}

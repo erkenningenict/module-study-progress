@@ -1,59 +1,49 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React, { useState } from 'react';
 import { LicenseTable } from './containers/LicenseTable';
-import { ILicenseDetails } from './models/license-details';
 import { StudyProgressContainer } from './containers/StudyProgressContainer';
 import 'primereact/resources/primereact.min.css';
-// import '@fortawesome/fontawesome-free/css/all.min.css';
 import 'primeicons/primeicons.css';
-import 'primereact/resources/primereact.min.css';
-import { Alert, Spinner } from '@erkenningen/ui';
+import { Alert } from '@erkenningen/ui/components/alert';
+import { Spinner } from '@erkenningen/ui/components/spinner';
+import { StudyProgressDetailFragment, useGetMyStudyProgressQuery } from './generated/graphql';
 
-export const App: React.FC<{}> = (props) => {
-  const [showStudyProgressForLicenseId, setShowStudyProgressForLicenseId] = useState<
-    ILicenseDetails | undefined
+export const App = () => {
+  const [studyProgressForLicenseId, setStudyProgressForLicenseId] = useState<
+    StudyProgressDetailFragment | undefined
   >(undefined);
-  const [data, setData] = useState<ILicenseDetails[] | null>(null);
-  const [isLoading, setIsLoading] = useState(false);
-  const [isError, setIsError] = useState(false);
 
-  useEffect(() => {
-    setIsLoading(true);
-    async function getData() {
-      try {
-        const result = await axios(`${process.env.REACT_APP_DNN_WEB_API}/License/LicenseList`);
-        setData(result.data);
-        setIsLoading(false);
-      } catch (error) {
-        setIsError(true);
+  const { loading, error, data } = useGetMyStudyProgressQuery();
+
+  if (loading) {
+    return <Spinner></Spinner>;
+  }
+  if (error) {
+    for (const err of error.graphQLErrors) {
+      if (err.extensions && err.extensions.code === 'UNAUTHENTICATED') {
+        return <Alert type="warning">U bent niet ingelogd. Log eerst in.</Alert>;
       }
     }
-    getData();
-  }, []);
+    return <Alert type="danger">Er is een fout opgetreden, probeer het later opnieuw.</Alert>;
+  }
+  if (!data?.my) {
+    return <Alert type="danger">Kan geen gegevens ophalen</Alert>;
+  }
 
   return (
     <>
-      {isLoading && !data && <Spinner />}
-      {isError && (
-        <Alert type="danger">
-          Er is een probleem opgetreden bij het ophalen van de gegevens. Probeer het later nog eens.
-        </Alert>
-      )}
-      {data && !isError && !showStudyProgressForLicenseId && (
+      {data.my?.StudyProgress && !error && !studyProgressForLicenseId && (
         <LicenseTable
-          error={isError}
-          isLoaded={!!data}
-          isLoading={isLoading}
-          licenseList={data}
-          onSelectLicense={(licenseDetails: ILicenseDetails) =>
-            setShowStudyProgressForLicenseId(licenseDetails)
+          licenseList={data.my?.StudyProgress}
+          onSelectLicense={(studyProgressDetails: StudyProgressDetailFragment) =>
+            setStudyProgressForLicenseId(studyProgressDetails)
           }
         />
       )}
-      {data && !!showStudyProgressForLicenseId && (
+
+      {!!studyProgressForLicenseId && (
         <StudyProgressContainer
-          licenseDetails={showStudyProgressForLicenseId}
-          onShowAllLicenses={() => setShowStudyProgressForLicenseId(undefined)}
+          studyProgress={studyProgressForLicenseId}
+          onShowAllLicenses={() => setStudyProgressForLicenseId(undefined)}
         />
       )}
     </>
