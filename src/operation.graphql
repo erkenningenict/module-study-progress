@@ -15,6 +15,7 @@ fragment StudyProgressDetail on StudyProgress {
 
 fragment CertificeringFields on Certificering {
   CertificeringID
+  PersoonID
   Certificaat {
     Naam
   }

@@ -106,14 +106,19 @@ export const StudyProgressBar: React.FC<StudyProgressBarProps> = ({ studyProgres
           key={index}
         >
           {requiredBlock.done ? (
-            <Button disabled={true} type="link" label={requiredBlock.themeName} className="done" />
+            <Button
+              disabled={true}
+              buttonType="link"
+              label={requiredBlock.themeName}
+              className="done"
+            />
           ) : (
             <Button
               onClick={() => {
                 const fullUrl = `${url}${requiredBlock.themeId}&certificeringId=${studyProgress?.Certificering.CertificeringID}`;
                 window.location.assign(fullUrl);
               }}
-              type="link"
+              buttonType="link"
               label={requiredBlock.themeName}
               tooltip={`Klik om bijeenkomsten te kiezen van thema ${requiredBlock.themeName}`}
               tooltipOptions={{ position: 'top' }}
@@ -128,7 +133,7 @@ export const StudyProgressBar: React.FC<StudyProgressBarProps> = ({ studyProgres
           key={index}
         >
           {optionalBlock.done ? (
-            <Button type="link" disabled label={optionalBlock.themeName} />
+            <Button buttonType="link" disabled label={optionalBlock.themeName} />
           ) : (
             <div>
               Thema naar keuze:{' '}
@@ -141,7 +146,7 @@ export const StudyProgressBar: React.FC<StudyProgressBarProps> = ({ studyProgres
                           const fullUrl = `${url}${theme.themeId}&certificeringId=${studyProgress?.Certificering.CertificeringID}`;
                           window.location.assign(fullUrl);
                         }}
-                        type="link"
+                        buttonType="link"
                         label={theme.themeName}
                         tooltip={`Klik om bijeenkomsten te kiezen van thema ${theme.themeName}`}
                         tooltipOptions={{ position: 'top' }}

@@ -49,7 +49,7 @@ export const LicenseListRow: React.FC<LicenseListRowProps> = ({
     <tr key={row.CertificeringID}>
       <td className="text-right">
         <Button
-          type="link"
+          buttonType="link"
           label={row.NummerWeergave}
           onClick={() => onSelectLicense(studyProgress)}
           icon="pi pi-chevron-right"

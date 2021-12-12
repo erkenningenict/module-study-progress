@@ -73,7 +73,7 @@ export const StudyProgressContainer: React.FC<StudyProgressContainerProps> = ({
     <Panel title="Studievordering" key={certificering.CertificeringID}>
       <div className="">
         <Button
-          type="greenLink"
+          buttonType="greenLink"
           onClick={() => onShowAllLicenses()}
           label="Terug naar mijn licenties"
           icon="pi pi-chevron-left"
