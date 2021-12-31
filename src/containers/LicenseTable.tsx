@@ -1,30 +1,15 @@
 import React from 'react';
-import { Panel, PanelBody, TableResponsive } from '@erkenningen/ui';
-import { ILicenseDetails } from '../models/license-details';
+import { Panel, PanelBody } from '@erkenningen/ui/layout/panel';
+import { TableResponsive } from '@erkenningen/ui/layout/table';
 import { LicenseListRow } from '../components/LicenseListRow';
+import { StudyProgressDetailFragment } from '../generated/graphql';
 
-interface ILicenseTableProps {
-  licenseList: ILicenseDetails[] | null;
-  error: any;
-  isLoaded: boolean;
-  isLoading: boolean;
-  onSelectLicense: any;
+interface LicenseTableProps {
+  licenseList: StudyProgressDetailFragment[];
+  onSelectLicense: (license: StudyProgressDetailFragment) => void;
 }
 
-export const LicenseTable: React.FC<ILicenseTableProps> = (props) => {
-  const { licenseList } = props;
-  const rows: any[] = [];
-  licenseList &&
-    licenseList.map((licenseDetails: ILicenseDetails) =>
-      rows.push(
-        <LicenseListRow
-          row={licenseDetails}
-          key={licenseDetails.LicenseId}
-          onSelectLicense={() => props.onSelectLicense(licenseDetails)}
-        />,
-      ),
-    );
-
+export const LicenseTable: React.FC<LicenseTableProps> = ({ licenseList, onSelectLicense }) => {
   return (
     <Panel
       title={`Uw licentie${licenseList && licenseList.length > 1 ? '(s)' : ''}`}
@@ -48,7 +33,15 @@ export const LicenseTable: React.FC<ILicenseTableProps> = (props) => {
               </th>
             </tr>
           </thead>
-          <tbody>{rows}</tbody>
+          <tbody>
+            {licenseList.map((studyProgress: StudyProgressDetailFragment) => (
+              <LicenseListRow
+                studyProgress={studyProgress}
+                key={studyProgress.Certificering.CertificeringID}
+                onSelectLicense={() => onSelectLicense(studyProgress)}
+              />
+            ))}
+          </tbody>
         </table>
       </TableResponsive>
     </Panel>

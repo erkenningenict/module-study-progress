@@ -22,12 +22,12 @@ ngApimock.watch('mocks');
   app.use('/mocking', require('serve-static')('.tmp/mocks'));
   app.use((req, res) => {
     console.log('incoming request url: ', req.url);
-    if (req.url.match('/DesktopModules') !== null) {
-      console.log('#DH# inside Desktopmodules');
+    if (req.url.match('/graphql') !== null) {
+      console.log('Inside graphql');
       // Real api endpoint
-      const baseUrlProd = `https://adviseren.erkenningen.nl`;
-      const redirectUrl = `${baseUrlProd}${req.url}`;
-      console.log('redirecting to Prod API: ', redirectUrl);
+      const baseUrl = `http://localhost:3010/graphql`;
+      const redirectUrl = `${baseUrl}`;
+      console.log('redirecting to API: ', redirectUrl);
       // Redirect to the real api endpoint
       res.writeHead(307, {
         Location: redirectUrl,

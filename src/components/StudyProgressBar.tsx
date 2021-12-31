@@ -1,35 +1,39 @@
 import React from 'react';
-import { ILicenseDetails, IParticipationPoint, IParticipation } from '../models/license-details';
 import './StudyProgressBar.css';
-import { Button } from '@erkenningen/ui';
+import { Button } from '@erkenningen/ui/components/button';
+import { StudyProgressDetailFragment } from '../generated/graphql';
 
-export const StudyProgressBar: React.FC<{ licenseDetails: ILicenseDetails }> = (props) => {
-  const participationPoints = props.licenseDetails.ParticipationPoints;
-  const participations = props.licenseDetails.Participations;
-  let required: { themeId: number; themeName: string; done: boolean }[] = [];
-  let optional: {
+interface StudyProgressBarProps {
+  studyProgress: StudyProgressDetailFragment | null;
+}
+
+export const StudyProgressBar: React.FC<StudyProgressBarProps> = ({ studyProgress }) => {
+  const participationPoints = studyProgress?.ParticipationPoints || [];
+  const studieresultaten = studyProgress?.Studieresultaten || [];
+  const required: { themeId: number; themeName: string; done: boolean }[] = [];
+  const optional: {
     themes: { themeId: number; themeName: string }[];
     themeName: string;
     done: boolean;
   }[] = [];
-  let optionalDone: number = 0;
-  let availableThemes: { themeId: number; themeName: string }[] = [];
+  let optionalDone = 0;
+  const availableThemes: { themeId: number; themeName: string }[] = [];
   const doneThemes: string[] = [];
-  participations.forEach((participation: IParticipation) => {
-    doneThemes.push(participation.Course.Theme);
+  studieresultaten?.forEach((studieresultaat) => {
+    doneThemes.push(studieresultaat?.Cursus.Vak.ThemaNaam || 'Onbekend thema');
   });
-  participationPoints.forEach((participationPoint: IParticipationPoint) => {
+  participationPoints.forEach((participationPoint) => {
     // Check all required points
-    if (participationPoint.RequiredPoints >= 1) {
-      let requiredDone: number = participationPoint.CountedPoints;
+    if (participationPoint!.RequiredPoints >= 1) {
+      let requiredDone: number = participationPoint!.CountedPoints;
       let requiredTodo: number =
-        participationPoint.RequiredPoints - participationPoint.CountedPoints;
+        participationPoint!.RequiredPoints - participationPoint!.CountedPoints;
       if (requiredTodo < 0) {
         requiredTodo = 0;
       }
       for (
         let requiredParticipation = 0;
-        requiredParticipation < participationPoint.RequiredPoints;
+        requiredParticipation < participationPoint!.RequiredPoints;
         requiredParticipation++
       ) {
         let done = false;
@@ -37,43 +41,43 @@ export const StudyProgressBar: React.FC<{ licenseDetails: ILicenseDetails }> = (
           done = true;
         }
         required.push({
-          themeId: participationPoint.ThemeId,
-          themeName: `${participationPoint.ThemeName} (verplicht)`,
+          themeId: participationPoint!.ThemaId,
+          themeName: `${participationPoint!.ThemaNaam} (verplicht)`,
           done: done,
         });
         requiredDone = requiredDone - 1;
-        if (doneThemes.indexOf(participationPoint.ThemeName) > -1) {
-          doneThemes.splice(doneThemes.indexOf(participationPoint.ThemeName), 1);
+        if (doneThemes.indexOf(participationPoint!.ThemaNaam) > -1) {
+          doneThemes.splice(doneThemes.indexOf(participationPoint!.ThemaNaam), 1);
         }
       }
-      if (participationPoint.CountedPoints - participationPoint.RequiredPoints > 0) {
+      if (participationPoint!.CountedPoints - participationPoint!.RequiredPoints > 0) {
         // Required point is done as optional theme
-        optionalDone += participationPoint.CountedPoints - participationPoint.RequiredPoints;
+        optionalDone += participationPoint!.CountedPoints - participationPoint!.RequiredPoints;
       }
-      if (participationPoint.ThemeName !== 'KBA' && participationPoint.ThemeName !== 'KBA-GB') {
+      if (participationPoint!.ThemaNaam !== 'KBA' && participationPoint!.ThemaNaam !== 'KBA-GB') {
         availableThemes.push({
-          themeId: participationPoint.ThemeId,
-          themeName: participationPoint.ThemeName,
+          themeId: participationPoint!.ThemaId,
+          themeName: participationPoint!.ThemaNaam,
         });
       }
     } else {
-      optionalDone += participationPoint.CountedPoints;
+      optionalDone += participationPoint!.CountedPoints;
 
       availableThemes.push({
-        themeId: participationPoint.ThemeId,
-        themeName: participationPoint.ThemeName,
+        themeId: participationPoint!.ThemaId,
+        themeName: participationPoint!.ThemaNaam,
       });
     }
   });
   if (availableThemes.length === 0) {
-    participationPoints.forEach((participationPoint: IParticipationPoint) => {
+    participationPoints.forEach((participationPoint) => {
       availableThemes.push({
-        themeId: participationPoint.ThemeId,
-        themeName: participationPoint.ThemeName,
+        themeId: participationPoint!.ThemaId,
+        themeName: participationPoint!.ThemaNaam,
       });
     });
   }
-  for (let index = 0; index < props.licenseDetails.RequiredPoints - required.length; index++) {
+  for (let index = 0; index < (studyProgress?.RequiredPoints || 0) - required.length; index++) {
     let isDone = false;
 
     if (optionalDone > 0) {
@@ -89,9 +93,9 @@ export const StudyProgressBar: React.FC<{ licenseDetails: ILicenseDetails }> = (
       done: isDone,
     });
   }
-  const colorGreen: string = '#6abbb7';
-  const colorOrange: string = '#dd6b02';
-  const url: string = `${process.env.REACT_APP_DNN_SEARCH_COURSE_MODULE_URL}?themaId=`;
+  const colorGreen = '#6abbb7';
+  const colorOrange = '#dd6b02';
+  const url = `${process.env.REACT_APP_DNN_SEARCH_COURSE_MODULE_URL}?themaId=`;
 
   const blocks = (
     <div className="block-container">
@@ -102,14 +106,19 @@ export const StudyProgressBar: React.FC<{ licenseDetails: ILicenseDetails }> = (
           key={index}
         >
           {requiredBlock.done ? (
-            <Button disabled={true} type="link" label={requiredBlock.themeName} className="done" />
+            <Button
+              disabled={true}
+              buttonType="link"
+              label={requiredBlock.themeName}
+              className="done"
+            />
           ) : (
             <Button
               onClick={() => {
-                const fullUrl = `${url}${requiredBlock.themeId}&certificeringId=${props.licenseDetails.LicenseId}`;
+                const fullUrl = `${url}${requiredBlock.themeId}&certificeringId=${studyProgress?.Certificering.CertificeringID}`;
                 window.location.assign(fullUrl);
               }}
-              type="link"
+              buttonType="link"
               label={requiredBlock.themeName}
               tooltip={`Klik om bijeenkomsten te kiezen van thema ${requiredBlock.themeName}`}
               tooltipOptions={{ position: 'top' }}
@@ -124,7 +133,7 @@ export const StudyProgressBar: React.FC<{ licenseDetails: ILicenseDetails }> = (
           key={index}
         >
           {optionalBlock.done ? (
-            <Button type="link" disabled label={optionalBlock.themeName} />
+            <Button buttonType="link" disabled label={optionalBlock.themeName} />
           ) : (
             <div>
               Thema naar keuze:{' '}
@@ -134,10 +143,10 @@ export const StudyProgressBar: React.FC<{ licenseDetails: ILicenseDetails }> = (
                     <div key={index}>
                       <Button
                         onClick={() => {
-                          const fullUrl = `${url}${theme.themeId}&certificeringId=${props.licenseDetails.LicenseId}`;
+                          const fullUrl = `${url}${theme.themeId}&certificeringId=${studyProgress?.Certificering.CertificeringID}`;
                           window.location.assign(fullUrl);
                         }}
-                        type="link"
+                        buttonType="link"
                         label={theme.themeName}
                         tooltip={`Klik om bijeenkomsten te kiezen van thema ${theme.themeName}`}
                         tooltipOptions={{ position: 'top' }}

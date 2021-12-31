@@ -1,57 +1,65 @@
 import React from 'react';
-import { Button, toDutchDate } from '@erkenningen/ui';
-import { ILicenseDetails, ILicenseAnnotation } from '../models/license-details';
+import { Button } from '@erkenningen/ui/components/button';
+import { toDutchDate } from '@erkenningen/ui/utils';
 
 import './LicenseListRow.css';
+import { StudyProgressDetailFragment, CertificeringStatusEnum } from '../generated/graphql';
 
-interface ILicenseListRowProps {
-  row: ILicenseDetails;
-  onSelectLicense: (row: ILicenseDetails | undefined) => void;
+interface LicenseListRowProps {
+  studyProgress: StudyProgressDetailFragment;
+  onSelectLicense: (row: StudyProgressDetailFragment | undefined) => void;
 }
 
-export const LicenseListRow: React.FC<ILicenseListRowProps> = (props) => {
-  const { row } = props;
+export const LicenseListRow: React.FC<LicenseListRowProps> = ({
+  studyProgress,
+  onSelectLicense,
+}) => {
+  const row = studyProgress!.Certificering;
   const withDrawn =
-    (row.WithdrawnFromDate &&
-      row.WithdrawnToDate &&
-      new Date() >= new Date(row.WithdrawnFromDate) &&
-      new Date() <= new Date(row.WithdrawnToDate)) ||
-    row.Status === 'Ingetrokken';
+    (row.DatumIngetrokkenVan &&
+      row.DatumIngetrokkenTot &&
+      new Date() >= new Date(row.DatumIngetrokkenVan) &&
+      new Date() <= new Date(row.DatumIngetrokkenTot)) ||
+    row.Status === CertificeringStatusEnum.Ingetrokken;
   let statusLabel: any = row.Status;
   if (withDrawn) {
     statusLabel = (
       <span style={{ color: 'red' }}>
-        <del>{row.Status}</del> (ingetrokken van{' '}
-        {row.WithdrawnFromDate && toDutchDate(row.WithdrawnFromDate.toString())} tot{' '}
-        {row.WithdrawnToDate && toDutchDate(row.WithdrawnToDate.toString())})
+        {row.Status}{' '}
+        {row.DatumIngetrokkenVan && row.DatumIngetrokkenTot && (
+          <span>
+            ingetrokken van {row.DatumIngetrokkenVan && toDutchDate(row.DatumIngetrokkenVan)} tot{' '}
+            {row.DatumIngetrokkenTot && toDutchDate(row.DatumIngetrokkenTot)}
+          </span>
+        )}
       </span>
     );
   }
-  let certificateName = row.CertificateName;
-  if (row.LicenseAnnotations) {
-    let annotations: string = '';
-    row.LicenseAnnotations.forEach((annotation: ILicenseAnnotation) => {
-      annotations += ` + ${annotation.AnnotationCode} (vanaf: ${toDutchDate(
-        annotation.FromDate.toString(),
+  let certificateName = row.Certificaat?.Naam;
+  if (row.CertificeringAantekeningen) {
+    let annotations = '';
+    row.CertificeringAantekeningen?.forEach((annotation) => {
+      annotations += ` + ${annotation?.AantekeningCode} (vanaf: ${toDutchDate(
+        annotation?.VanafDatum,
       )})`;
     });
     certificateName += annotations;
   }
   return (
-    <tr key={row.LicenseId}>
+    <tr key={row.CertificeringID}>
       <td className="text-right">
         <Button
-          type="link"
-          label={row.CertificateNr}
-          onClick={() => props.onSelectLicense(row)}
+          buttonType="link"
+          label={row.NummerWeergave}
+          onClick={() => onSelectLicense(studyProgress)}
           icon="pi pi-chevron-right"
           tooltip="Bekijk de studievordering voor deze licentie"
         ></Button>
       </td>
       <td>{certificateName}</td>
       <td>{statusLabel}</td>
-      <td className="text-right">{toDutchDate(row.StartDate)}</td>
-      <td className="text-right">{toDutchDate(row.EndDate)}</td>
+      <td className="text-right">{toDutchDate(row.BeginDatum)}</td>
+      <td className="text-right">{toDutchDate(row.EindDatum)}</td>
     </tr>
   );
 };
