@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { LicenseTable } from './containers/LicenseTable';
 import { StudyProgressContainer } from './containers/StudyProgressContainer';
 import 'primereact/resources/primereact.min.css';

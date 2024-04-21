@@ -1,0 +1,472 @@
+{
+  "name": "getLicenseList",
+  "request": {
+    "url": "/graphql",
+    "method": "POST",
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  },
+  "delay": 200,
+  "array": true,
+  "responses": {
+    "500": {
+      "status": 500
+    },
+    "200-79469-all-UG": {
+      "default": true,
+      "status": 200,
+      "data": {
+        "data": {
+          "my": {
+            "StudyProgress": [
+              {
+                "Certificering": {
+                  "CertificeringID": 396760,
+                  "PersoonID": 304867,
+                  "Certificaat": {
+                    "Naam": "KBA",
+                    "__typename": "Certificaat"
+                  },
+                  "NummerWeergave": "31.2021.0013754",
+                  "Status": "Geldig",
+                  "BeginDatum": "2021-08-28T22:00:00.000Z",
+                  "EindDatum": "2026-08-28T22:00:00.000Z",
+                  "DatumVoldaan": null,
+                  "DatumIngetrokkenVan": null,
+                  "DatumIngetrokkenTot": null,
+                  "CertificeringAantekeningen": [],
+                  "__typename": "Certificering"
+                },
+                "RequiredPoints": 1,
+                "DonePoints": 0,
+                "CountedPoints": 0,
+                "RequiredPointsTodo": 1,
+                "Completed": false,
+                "PointsToDo": 1,
+                "ParticipationPoints": [
+                  {
+                    "ThemaId": 24,
+                    "ThemaNaam": "KBA",
+                    "RequiredPoints": 1,
+                    "DonePoints": 0,
+                    "CountedPoints": 0,
+                    "__typename": "ParticipationPoint"
+                  }
+                ],
+                "Studieresultaten": [],
+                "__typename": "StudyProgress"
+              },
+              {
+                "Certificering": {
+                  "CertificeringID": 396761,
+                  "PersoonID": 304867,
+                  "Certificaat": {
+                    "Naam": "Uitvoeren Gewasbescherming",
+                    "__typename": "Certificaat"
+                  },
+                  "NummerWeergave": "31.2021.0013755",
+                  "Status": "Geldig",
+                  "BeginDatum": "2021-08-28T22:00:00.000Z",
+                  "EindDatum": "2026-08-28T22:00:00.000Z",
+                  "DatumVoldaan": null,
+                  "DatumIngetrokkenVan": null,
+                  "DatumIngetrokkenTot": null,
+                  "CertificeringAantekeningen": [],
+                  "__typename": "Certificering"
+                },
+                "RequiredPoints": 4,
+                "DonePoints": 0,
+                "CountedPoints": 0,
+                "RequiredPointsTodo": 1,
+                "Completed": false,
+                "PointsToDo": 4,
+                "ParticipationPoints": [
+                  {
+                    "ThemaId": 1,
+                    "ThemaNaam": "Veiligheid en Techniek",
+                    "RequiredPoints": 1,
+                    "DonePoints": 0,
+                    "CountedPoints": 0,
+                    "__typename": "ParticipationPoint"
+                  },
+                  {
+                    "ThemaId": 2,
+                    "ThemaNaam": "Teelt",
+                    "RequiredPoints": 0,
+                    "DonePoints": 0,
+                    "CountedPoints": 0,
+                    "__typename": "ParticipationPoint"
+                  },
+                  {
+                    "ThemaId": 3,
+                    "ThemaNaam": "Transport en opslag",
+                    "RequiredPoints": 0,
+                    "DonePoints": 0,
+                    "CountedPoints": 0,
+                    "__typename": "ParticipationPoint"
+                  }
+                ],
+                "Studieresultaten": [],
+                "__typename": "StudyProgress"
+              },
+              {
+                "Certificering": {
+                  "CertificeringID": 244715,
+                  "PersoonID": 304867,
+                  "Certificaat": {
+                    "Naam": "Uitvoeren gewasbesch. + KBA",
+                    "__typename": "Certificaat"
+                  },
+                  "NummerWeergave": "31.2011.0022048",
+                  "Status": "Verlopen",
+                  "BeginDatum": "2016-08-28T22:00:00.000Z",
+                  "EindDatum": "2021-08-28T22:00:00.000Z",
+                  "DatumVoldaan": "2021-06-24T22:00:00.000Z",
+                  "DatumIngetrokkenVan": null,
+                  "DatumIngetrokkenTot": null,
+                  "CertificeringAantekeningen": [],
+                  "__typename": "Certificering"
+                },
+                "RequiredPoints": 5,
+                "DonePoints": 5,
+                "CountedPoints": 5,
+                "RequiredPointsTodo": 2,
+                "Completed": true,
+                "PointsToDo": 0,
+                "ParticipationPoints": [
+                  {
+                    "ThemaId": 1,
+                    "ThemaNaam": "Veiligheid en Techniek",
+                    "RequiredPoints": 1,
+                    "DonePoints": 2,
+                    "CountedPoints": 2,
+                    "__typename": "ParticipationPoint"
+                  },
+                  {
+                    "ThemaId": 2,
+                    "ThemaNaam": "Teelt",
+                    "RequiredPoints": 0,
+                    "DonePoints": 2,
+                    "CountedPoints": 2,
+                    "__typename": "ParticipationPoint"
+                  },
+                  {
+                    "ThemaId": 3,
+                    "ThemaNaam": "Transport en opslag",
+                    "RequiredPoints": 0,
+                    "DonePoints": 0,
+                    "CountedPoints": 0,
+                    "__typename": "ParticipationPoint"
+                  },
+                  {
+                    "ThemaId": 24,
+                    "ThemaNaam": "KBA",
+                    "RequiredPoints": 1,
+                    "DonePoints": 1,
+                    "CountedPoints": 1,
+                    "__typename": "ParticipationPoint"
+                  }
+                ],
+                "Studieresultaten": [
+                  {
+                    "StudieresultaatID": 848679,
+                    "Status": "Definitief",
+                    "Cursus": {
+                      "CursusCode": "2342154312",
+                      "Titel": "Duurzame ruwvoerteelt",
+                      "Status": "Betaald",
+                      "Vak": {
+                        "Titel": "Duurzame ruwvoerteelt",
+                        "ThemaNaam": "Teelt",
+                        "__typename": "Vak"
+                      },
+                      "Sessies": [
+                        {
+                          "Datum": "2018-03-26T22:00:00.000Z",
+                          "__typename": "Sessie"
+                        }
+                      ],
+                      "__typename": "Cursus"
+                    },
+                    "__typename": "Studieresultaat"
+                  },
+                  {
+                    "StudieresultaatID": 894252,
+                    "Status": "Definitief",
+                    "Cursus": {
+                      "CursusCode": "2379559913",
+                      "Titel": "Veilig en verantwoord (laten) spuiten in ruwvoedergewassen",
+                      "Status": "Betaald",
+                      "Vak": {
+                        "Titel": "Veilig en verantwoord (laten) spuiten in ruwvoedergewassen",
+                        "ThemaNaam": "Veiligheid en Techniek",
+                        "__typename": "Vak"
+                      },
+                      "Sessies": [
+                        {
+                          "Datum": "2019-02-25T23:00:00.000Z",
+                          "__typename": "Sessie"
+                        }
+                      ],
+                      "__typename": "Cursus"
+                    },
+                    "__typename": "Studieresultaat"
+                  },
+                  {
+                    "StudieresultaatID": 939405,
+                    "Status": "Definitief",
+                    "Cursus": {
+                      "CursusCode": "2419464281",
+                      "Titel": "Duurzaam ruwvoer telen",
+                      "Status": "Betaald",
+                      "Vak": {
+                        "Titel": "Duurzaam ruwvoer telen",
+                        "ThemaNaam": "Teelt",
+                        "__typename": "Vak"
+                      },
+                      "Sessies": [
+                        {
+                          "Datum": "2020-02-26T23:00:00.000Z",
+                          "__typename": "Sessie"
+                        }
+                      ],
+                      "__typename": "Cursus"
+                    },
+                    "__typename": "Studieresultaat"
+                  },
+                  {
+                    "StudieresultaatID": 976598,
+                    "Status": "Definitief",
+                    "Cursus": {
+                      "CursusCode": "2542666391",
+                      "Titel": "Knaagdieren beheersen in agrarische bedrijfsgebouwen - aantekening verlengen of behalen (Coronaproof)",
+                      "Status": "Betaald",
+                      "Vak": {
+                        "Titel": "Knaagdieren beheersen in agrarische bedrijfsgebouwen - aantekening verlengen of behalen (Coronaproof)",
+                        "ThemaNaam": "KBA",
+                        "__typename": "Vak"
+                      },
+                      "Sessies": [
+                        {
+                          "Datum": "2021-06-07T22:00:00.000Z",
+                          "__typename": "Sessie"
+                        }
+                      ],
+                      "__typename": "Cursus"
+                    },
+                    "__typename": "Studieresultaat"
+                  },
+                  {
+                    "StudieresultaatID": 977627,
+                    "Status": "Definitief",
+                    "Cursus": {
+                      "CursusCode": "2545366381",
+                      "Titel": "Verantwoord omgaan met gewasbeschermingsmiddelen (Coronaproof)",
+                      "Status": "Betaald",
+                      "Vak": {
+                        "Titel": "Verantwoord omgaan met gewasbeschermingsmiddelen (Coronaproof)",
+                        "ThemaNaam": "Veiligheid en Techniek",
+                        "__typename": "Vak"
+                      },
+                      "Sessies": [
+                        {
+                          "Datum": "2021-06-14T22:00:00.000Z",
+                          "__typename": "Sessie"
+                        }
+                      ],
+                      "__typename": "Cursus"
+                    },
+                    "__typename": "Studieresultaat"
+                  }
+                ],
+                "__typename": "StudyProgress"
+              },
+              {
+                "Certificering": {
+                  "CertificeringID": 242268,
+                  "PersoonID": 304867,
+                  "Certificaat": {
+                    "Naam": "Uitvoeren Gewasbescherming",
+                    "__typename": "Certificaat"
+                  },
+                  "NummerWeergave": "31.2011.0019602",
+                  "Status": "Verlopen",
+                  "BeginDatum": "2011-08-28T22:00:00.000Z",
+                  "EindDatum": "2016-08-28T22:00:00.000Z",
+                  "DatumVoldaan": "2011-11-23T23:00:00.000Z",
+                  "DatumIngetrokkenVan": null,
+                  "DatumIngetrokkenTot": null,
+                  "CertificeringAantekeningen": [
+                    {
+                      "AantekeningCode": "KBA",
+                      "VanafDatum": "2015-03-22T23:00:00.000Z",
+                      "__typename": "CertificeringAantekening"
+                    }
+                  ],
+                  "__typename": "Certificering"
+                },
+                "RequiredPoints": 5,
+                "DonePoints": 5,
+                "CountedPoints": 5,
+                "RequiredPointsTodo": 2,
+                "Completed": true,
+                "PointsToDo": 0,
+                "ParticipationPoints": [
+                  {
+                    "ThemaId": 1,
+                    "ThemaNaam": "Veiligheid en Techniek",
+                    "RequiredPoints": 1,
+                    "DonePoints": 2,
+                    "CountedPoints": 2,
+                    "__typename": "ParticipationPoint"
+                  },
+                  {
+                    "ThemaId": 2,
+                    "ThemaNaam": "Teelt",
+                    "RequiredPoints": 0,
+                    "DonePoints": 2,
+                    "CountedPoints": 2,
+                    "__typename": "ParticipationPoint"
+                  },
+                  {
+                    "ThemaId": 3,
+                    "ThemaNaam": "Transport en opslag",
+                    "RequiredPoints": 0,
+                    "DonePoints": 0,
+                    "CountedPoints": 0,
+                    "__typename": "ParticipationPoint"
+                  },
+                  {
+                    "ThemaId": 24,
+                    "ThemaNaam": "KBA",
+                    "RequiredPoints": 1,
+                    "DonePoints": 1,
+                    "CountedPoints": 1,
+                    "__typename": "ParticipationPoint"
+                  }
+                ],
+                "Studieresultaten": [
+                  {
+                    "StudieresultaatID": 577386,
+                    "Status": "Definitief",
+                    "Cursus": {
+                      "CursusCode": "2173036697",
+                      "Titel": "Veiligheid en techniek in de landbouw",
+                      "Status": "Betaald",
+                      "Vak": {
+                        "Titel": "Veiligheid en techniek in de landbouw",
+                        "ThemaNaam": "Veiligheid en Techniek",
+                        "__typename": "Vak"
+                      },
+                      "Sessies": [
+                        {
+                          "Datum": "2013-02-05T23:00:00.000Z",
+                          "__typename": "Sessie"
+                        }
+                      ],
+                      "__typename": "Cursus"
+                    },
+                    "__typename": "Studieresultaat"
+                  },
+                  {
+                    "StudieresultaatID": 693508,
+                    "Status": "Definitief",
+                    "Cursus": {
+                      "CursusCode": "2201543450",
+                      "Titel": "Knaagdierbeheersing op het agrarisch bedrijf",
+                      "Status": "Betaald",
+                      "Vak": {
+                        "Titel": "Knaagdierbeheersing op het agrarisch bedrijf",
+                        "ThemaNaam": "KBA",
+                        "__typename": "Vak"
+                      },
+                      "Sessies": [
+                        {
+                          "Datum": "2015-03-22T23:00:00.000Z",
+                          "__typename": "Sessie"
+                        }
+                      ],
+                      "__typename": "Cursus"
+                    },
+                    "__typename": "Studieresultaat"
+                  },
+                  {
+                    "StudieresultaatID": 695360,
+                    "Status": "Definitief",
+                    "Cursus": {
+                      "CursusCode": "2239644073",
+                      "Titel": "Precies (laten) spuiten in ruwvoedergewassen",
+                      "Status": "Betaald",
+                      "Vak": {
+                        "Titel": "Precies (laten) spuiten in ruwvoedergewassen",
+                        "ThemaNaam": "Veiligheid en Techniek",
+                        "__typename": "Vak"
+                      },
+                      "Sessies": [
+                        {
+                          "Datum": "2015-02-18T23:00:00.000Z",
+                          "__typename": "Sessie"
+                        }
+                      ],
+                      "__typename": "Cursus"
+                    },
+                    "__typename": "Studieresultaat"
+                  },
+                  {
+                    "StudieresultaatID": 724755,
+                    "Status": "Definitief",
+                    "Cursus": {
+                      "CursusCode": "2276946800",
+                      "Titel": "Weerbaar telen",
+                      "Status": "Betaald",
+                      "Vak": {
+                        "Titel": "Weerbaar telen",
+                        "ThemaNaam": "Teelt",
+                        "__typename": "Vak"
+                      },
+                      "Sessies": [
+                        {
+                          "Datum": "2016-01-24T23:00:00.000Z",
+                          "__typename": "Sessie"
+                        }
+                      ],
+                      "__typename": "Cursus"
+                    },
+                    "__typename": "Studieresultaat"
+                  },
+                  {
+                    "StudieresultaatID": 727472,
+                    "Status": "Definitief",
+                    "Cursus": {
+                      "CursusCode": "2276946679",
+                      "Titel": "Weerbaar telen",
+                      "Status": "Betaald",
+                      "Vak": {
+                        "Titel": "Weerbaar telen",
+                        "ThemaNaam": "Teelt",
+                        "__typename": "Vak"
+                      },
+                      "Sessies": [
+                        {
+                          "Datum": "2016-01-18T23:00:00.000Z",
+                          "__typename": "Sessie"
+                        }
+                      ],
+                      "__typename": "Cursus"
+                    },
+                    "__typename": "Studieresultaat"
+                  }
+                ],
+                "__typename": "StudyProgress"
+              }
+            ],
+            "__typename": "My"
+          }
+        }
+      },
+
+      "file1": "./mocks/license/data/getLicenseList-79469.json"
+    }
+  }
+}
