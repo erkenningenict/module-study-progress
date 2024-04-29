@@ -6,6 +6,7 @@ import { Button } from '@erkenningen/ui/components/button';
 import { StudieresultaatDetailsRow } from '../components/StudieresultaatDetailsRow';
 import { StudyProgressBar } from '../components/StudyProgressBar';
 import { StudyProgressDetailFragment } from '../generated/graphql';
+import { Alert } from '@erkenningen/ui/components/alert';
 
 interface StudyProgressContainerProps {
   studyProgress: StudyProgressDetailFragment;
@@ -69,6 +70,13 @@ export const StudyProgressContainer: React.FC<StudyProgressContainerProps> = ({
       </p>
     </div>
   );
+
+  const hasVeiligheidAndTechniek = studyProgress?.ParticipationPoints?.some(
+    (participationPoint) => {
+      return participationPoint.ThemaId === 1;
+    },
+  );
+
   return (
     <Panel title="Studievordering" key={certificering.CertificeringID}>
       <div className="">
@@ -90,6 +98,17 @@ export const StudyProgressContainer: React.FC<StudyProgressContainerProps> = ({
         {certificering.Certificaat?.Naam} te verlengen. U volgt daarvoor minimaal{' '}
         {studyProgress?.RequiredPoints} bijeenkomsten:
       </p>
+      {hasVeiligheidAndTechniek &&
+        new Date(certificering.EindDatum).getTime() >= new Date().getTime() && (
+          <Alert type="warning">
+            <strong>Let op:</strong>{' '}
+            <strong>
+              vanaf 1-8-2024 moet u minimaal 1 fysieke bijeenkomst Veiligheid en Techniek
+            </strong>{' '}
+            volgen om uw licentie te verlengen.
+            <p>Een fysieke bijeenkomst is geen webinar of online bijeenkomst.</p>
+          </Alert>
+        )}
       <StudyProgressBar studyProgress={studyProgress} />
       {studyProgress?.RequiredPointsTodo === 0 ? (
         <p>

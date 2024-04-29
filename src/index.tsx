@@ -1,12 +1,5 @@
-// Add IE11 support
-import 'core-js/es/map';
-import 'core-js/es/set';
-import 'es6-shim';
-import 'react-app-polyfill/ie11';
-
-import { ERKENNINGEN_GRAPHQL_API_URL, ERKENNINGEN_SITE_TYPE } from '@erkenningen/config';
-import React from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
+import { ERKENNINGEN_GRAPHQL_API_URL, ERKENNINGEN_SITE_TYPE } from '@erkenningen/config/dist/index';
 import { ApolloClient, ApolloProvider, HttpLink, InMemoryCache } from '@apollo/client';
 import { App } from './App';
 import { ThemeContext, ThemeBureauErkenningen } from '@erkenningen/ui/layout/theme';
@@ -21,13 +14,14 @@ const client = new ApolloClient({
   cache,
 });
 
-ReactDOM.render(
+const container = document.getElementById('erkenningen-module-study-progress');
+const root = createRoot(container!); // createRoot(container!) if you use TypeScript
+root.render(
   <ApolloProvider client={client}>
     <ThemeBureauErkenningen>
-      <ThemeContext.Provider value={{ mode: ERKENNINGEN_SITE_TYPE }}>
+      <ThemeContext.Provider value={{ mode: ERKENNINGEN_SITE_TYPE as 'content' | 'admin' }}>
         <App />
       </ThemeContext.Provider>
     </ThemeBureauErkenningen>
   </ApolloProvider>,
-  document.getElementById('erkenningen-module-study-progress'),
 );

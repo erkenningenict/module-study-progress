@@ -95,7 +95,7 @@ export const StudyProgressBar: React.FC<StudyProgressBarProps> = ({ studyProgres
   }
   const colorGreen = '#6abbb7';
   const colorOrange = '#dd6b02';
-  const url = `${process.env.REACT_APP_DNN_SEARCH_COURSE_MODULE_URL}?themaId=`;
+  const url = `${import.meta.env.REACT_APP_DNN_SEARCH_COURSE_MODULE_URL}?themaId=`;
 
   const blocks = (
     <div className="block-container">

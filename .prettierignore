@@ -1,7 +1,8 @@
 .tmp
 .vscode
 coverage
-dist
+/dist
+
 # mocks
 node_modules
 # src
@@ -9,14 +10,11 @@ node_modules
 .gitignore
 .prettierignore
 .vcmrc
-angular-cli.json
 CONTRIBUTING.md
 CHANGELOG.md
 package.json
 package-lock.json
 README.md
-tslint.json
-wallaby.js
 src/*.stories.ts
 .stories.ts
 .out/*
